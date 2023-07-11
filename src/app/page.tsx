@@ -5,8 +5,8 @@ import styles from './page.module.css'
 import { useState } from 'react'
 import { MenuMobile } from './components/menuMobile/MenuMobile';
 
-import { Introducao} from './components/introducao/Introducao';
 import bgImage from "./assets/img/bgImage.png"
+import { Header } from './components/Header';
 
 export default function Home() {
 
@@ -20,6 +20,7 @@ export default function Home() {
   */
   return (
     <>
+      <Header/>
       <Image src={bgImage} alt="fundo"/>
     </>
   )
