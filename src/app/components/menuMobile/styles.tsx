@@ -26,9 +26,9 @@ export const MenuContainer = styled.div<{ isOpen: boolean }>`
 `;
 
 export const MenuToggle = styled.div`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
 
   @media(min-width: 769px){
     display: none;
@@ -36,9 +36,7 @@ export const MenuToggle = styled.div`
 `;
 
 export const ToggleIcon = styled(List)`
-    position: absolute;
-    top: 0.5rem;
-    right: 1rem;
+    color: var(--beige);
 `
 
 export const CloseIcon = styled(X)`
@@ -46,6 +44,7 @@ export const CloseIcon = styled(X)`
   position: absolute;
   top: 1rem;
   right: 1rem;  
+  color: var(--beige);
 `;
 
 

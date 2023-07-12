@@ -17,13 +17,14 @@ export const TagHeader = styled.header`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-direction: row-reverse;
     align-items: center;
   }
 `;
 
 export const NavLinks = styled.ul`
   display: flex;
-  max-width: 50vw;
+  max-width: 40vw;
   justify-content: center;
   align-items: center;
   gap: 64px;

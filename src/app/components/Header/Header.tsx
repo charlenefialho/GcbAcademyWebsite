@@ -18,7 +18,7 @@ interface HeaderProps {}
 export function Header(props: HeaderProps) {
   return (
     <TagHeader>
-      <MenuMobile/>
+      <MenuMobile isOpen={false}/>
       <LogoGcb/>
       <NavLinks>
         <NavLink href="#">Introdução</NavLink>

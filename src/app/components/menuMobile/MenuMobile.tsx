@@ -3,11 +3,12 @@ import { useState } from "react";
 import * as S from "./styles";
 
 interface MenuProps {
-  
+  isOpen : boolean
 }
 
 export function MenuMobile(props: MenuProps) {
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -20,9 +21,9 @@ export function MenuMobile(props: MenuProps) {
       <S.MenuContainer isOpen={isOpen}  onClick={toggleMenu}>
         {isOpen && <S.CloseIcon size={45}/>}
         <S.MenuItems>
-          <S.MenuItem><S.MenuLink href="#">Home</S.MenuLink></S.MenuItem>
-          <S.MenuItem><S.MenuLink href="#">About</S.MenuLink></S.MenuItem>
-          <S.MenuItem><S.MenuLink href="#">Contact</S.MenuLink></S.MenuItem>
+          <S.MenuItem><S.MenuLink href="#">Introdução</S.MenuLink></S.MenuItem>
+          <S.MenuItem><S.MenuLink href="#">Jornadas</S.MenuLink></S.MenuItem>
+          <S.MenuItem><S.MenuLink href="#">Sobre nós</S.MenuLink></S.MenuItem>
         </S.MenuItems>
       </S.MenuContainer>
     </>
