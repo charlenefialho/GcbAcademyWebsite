@@ -1,4 +1,4 @@
-export function Review(){
+export function Reviews(){
     return(
         <></>
     );
