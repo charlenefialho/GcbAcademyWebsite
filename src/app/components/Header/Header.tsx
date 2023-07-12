@@ -6,12 +6,12 @@ import Image from "next/image";
 import {
   TagHeader,
   NavLinks,
-  NavLink
-} from "./styles";
+  NavLink,
+} from "./Header.styles";
 import { LogoGcb } from "../LogoGcb/LogoGcb";
 import { MenuMobile } from "../MenuMobile/MenuMobile";
 import { Button } from "../Button/Button";
-//import gcbLogo from "../assets/svg/gcb-logo.svg";
+
 
 interface HeaderProps {}
 
@@ -25,7 +25,7 @@ export function Header(props: HeaderProps) {
         <NavLink href="#">Jornadas</NavLink>
         <NavLink href="#">Sobre nós</NavLink>
       </NavLinks>
-      <Button content="Entrar"></Button>
+      <Button content="Entrar" visible={false}></Button>
     </TagHeader>
   );
 }

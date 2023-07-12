@@ -1,5 +1,5 @@
 
-import {ImageStyledProps} from "./styles";
+import {ImageStyledProps} from "./LogoGcb.styles";
 import  logoGcb  from "../../assets/svg/gcb-logo.svg";
 
 

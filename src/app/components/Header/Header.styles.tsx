@@ -4,7 +4,6 @@ import Link from "next/link";
 import styled from "styled-components";
 
 
-
 export const TagHeader = styled.header`
   height: calc(6rem - 3px);
   width: 100%;

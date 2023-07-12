@@ -5,7 +5,7 @@ import StyledComponentsRegistry from "./lib/registry";
 import { Header } from "./components/Header/Header";
 
 const poppins = Poppins({
-  weight: ["300"],
+  weight: ['400','500','700'],
   subsets: ["latin"],
 });
 

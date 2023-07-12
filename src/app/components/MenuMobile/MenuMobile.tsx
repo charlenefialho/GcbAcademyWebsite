@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import * as S from "./styles";
+import * as S from "./MenuMobile.styles";
+import { Button } from "../Button/Button";
 
 interface MenuProps {
   isOpen : boolean
@@ -24,6 +25,7 @@ export function MenuMobile(props: MenuProps) {
           <S.MenuItem><S.MenuLink href="#">Introdução</S.MenuLink></S.MenuItem>
           <S.MenuItem><S.MenuLink href="#">Jornadas</S.MenuLink></S.MenuItem>
           <S.MenuItem><S.MenuLink href="#">Sobre nós</S.MenuLink></S.MenuItem>
+          <S.MenuItem><Button content="Entrar" visible={true}/></S.MenuItem>
         </S.MenuItems>
       </S.MenuContainer>
     </>

@@ -1,13 +1,10 @@
+import { ButtonStyled } from "./Button.style";
 
-import{ButtonStyled} from "./style";
-
-interface ButtonStyledProps{
-    content: string
+export interface ButtonStyledProps {
+  content: string;
+  visible?: boolean;
 }
 
-export function Button({content}: ButtonStyledProps){
-    
-    return(
-        <ButtonStyled>{content}</ButtonStyled>
-    )
+export function Button({ content , visible}: ButtonStyledProps) {
+  return <ButtonStyled content={content} visible={visible}>{content}</ButtonStyled>;
 }
