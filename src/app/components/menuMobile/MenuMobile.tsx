@@ -1,20 +1,30 @@
-'use client'
-import {Container} from "./styles"
-import {X} from "@phosphor-icons/react"
+import { useState } from "react";
 
-interface MenuMobileProps{
-    menuIsVisible: boolean
-    setMenuIsVisible: () => boolean
+import * as S from "./styles";
+
+interface MenuProps {
+  
 }
 
-export function MenuMobile({menuIsVisible, setMenuIsVisible} : MenuMobileProps){
-    <Container>
-        <X size={45} />
-        <nav>
-            <a href="#">link1</a>
-            <a href="#">Link2</a>
-            <a href="#">Link3</a>
-        </nav>
-    </Container>
-    
+export function MenuMobile(props: MenuProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <>
+      <S.MenuToggle onClick={toggleMenu}>
+        {!isOpen && <S.ToggleIcon  size={45}/>}
+      </S.MenuToggle>
+      <S.MenuContainer isOpen={isOpen}  onClick={toggleMenu}>
+        {isOpen && <S.CloseIcon size={45}/>}
+        <S.MenuItems>
+          <S.MenuItem><S.MenuLink href="#">Home</S.MenuLink></S.MenuItem>
+          <S.MenuItem><S.MenuLink href="#">About</S.MenuLink></S.MenuItem>
+          <S.MenuItem><S.MenuLink href="#">Contact</S.MenuLink></S.MenuItem>
+        </S.MenuItems>
+      </S.MenuContainer>
+    </>
+  );
 }

@@ -1,18 +1,71 @@
 'use client'
 
-import { styled } from "styled-components"
+import styled from 'styled-components';
+import { X , List} from "@phosphor-icons/react";
+import Link from 'next/link';
 
+export const MenuContainer = styled.div<{ isOpen: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+  z-index: 5;
+  transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
 
-export const Container = styled.section`
+  @media(min-width: 769px){
+    display: none;
+  }
+
+`;
+
+export const MenuToggle = styled.div`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  @media(min-width: 769px){
+    display: none;
+  }
+`;
+
+export const ToggleIcon = styled(List)`
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 0.5rem;
+    right: 1rem;
+`
+
+export const CloseIcon = styled(X)`
+  color: #333;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;  
+`;
+
+
+export const MenuItems = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin-top: 100px;
+`;
+
+export const MenuItem = styled.li`
+  padding: 2rem;
+`;
+
+export const MenuLink = styled(Link)`
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
 `
