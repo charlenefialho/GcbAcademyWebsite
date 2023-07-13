@@ -15,6 +15,17 @@ export const AliceCarouselStyled = styled(AliceCarousel)`
 
 `;
 
+export const Containerjourneys = styled.section`
+    width: 100%;
+    margin-top: 90px;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    margin-bottom: 3.31rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+`
+
 
 export const WaveTop = styled(Image)`
     position: absolute;

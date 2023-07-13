@@ -3,6 +3,19 @@ import React from 'react';
 import * as S from "./Jornadas.styles";
 import ImgWaveTop from "../../assets/svg/wave-top.svg";
 import ImgWaveBottom from "../../assets/svg/wave-bottom.svg";
+import { CardJourney } from "./CardJornada/CardJourney";
+
+
+const itensCard = [
+    <CardJourney/>,
+    <CardJourney/>,
+    <CardJourney/>,
+    <CardJourney/>,
+    <CardJourney/>,
+    <CardJourney/>,
+]
+    
+
 
 const itemsVisibles = {
     768: {
@@ -24,10 +37,10 @@ export function Jornada(){
     return(
         <S.SectionJourney>
             <S.WaveTop src={ImgWaveTop} alt="wave"/>
-            <div>
-            <h1>Veja o que outros colaboradores dizem!</h1>
-                <S.AliceCarouselStyled disableButtonsControls />  
-            </div>
+            <h1>Jornadas</h1>
+            <S.Containerjourneys>
+                <S.AliceCarouselStyled disableButtonsControls items={itensCard} responsive={itemsVisibles}/>  
+            </S.Containerjourneys>
             <S.WaveBottom src={ImgWaveBottom} alt="wave"/>
         </S.SectionJourney>
     );
