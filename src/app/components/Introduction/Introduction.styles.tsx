@@ -6,7 +6,7 @@ import { Button } from "../Button/Button";
 
 export const TagSection = styled.section`
   position: relative;
-  height: calc(100vh - (6rem - 3px));
+  height: 906px;
   width: 100%;
 `;
 
@@ -27,6 +27,7 @@ export const Container = styled.section`
 
 export const BackgroundImage = styled(Image)`
   background-size: cover;
+  z-index: -1;
 `;
 
 export const Title = styled.h1`

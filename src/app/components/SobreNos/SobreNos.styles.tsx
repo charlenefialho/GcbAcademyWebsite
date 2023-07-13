@@ -5,7 +5,7 @@ export const SectionAboutUs = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 2vh auto;
+  margin: 20vh auto;
 `
 
 export const ContainerAbouUs = styled.section`
