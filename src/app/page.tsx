@@ -1,5 +1,6 @@
 "use client";
 
+import { Footer } from "./components/Footer/Footer";
 import { Introduction } from "./components/Introduction/Introduction";
 import { Jornada } from "./components/Jornadas/Jornadas";
 import { Newsletter } from "./components/Newsletter/Newsletter";
@@ -15,9 +16,8 @@ export default function Home() {
       <Jornada/>
       <SobreNos/>
       <Reviews/>
-      <section className="newsLetterContainer">
-        <Newsletter/>
-      </section>
+      <Newsletter/>
+      <Footer/>
     </>
   );
 }
