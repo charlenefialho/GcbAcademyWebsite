@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-export const SectionContainer = styled.section`
+export const SectionAboutUs = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 2vh auto;
+`
+
+export const ContainerAbouUs = styled.section`
   width: 100%;
   margin: 2vh auto;
   display: flex;
@@ -22,10 +29,34 @@ export const TitleAboutUs = styled.h3`
 `;
 
 export const SectionTextAboutUs = styled.section`
-  @media (max-width: 768px) {
-    margin-left: 5vw;
-    margin-right: 5vw;
+  width: 50%;
+  .contentTextAboutUs{
+    width: 100%;
+  }
+  >div{
+    width: 60%;
+    
+  }
+
+  p{
     text-align: justify;
+    font-size: 1rem;
+  }
+  
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    .contentTextAboutUs{
+      width: 100%;
+      padding-left: 4vw;
+      padding-right: 4vw;
+  }
+
+  p{
+    text-align: justify;
+    font-size: 0.8rem;
+  }
+    
   }
 
   span{
@@ -36,13 +67,12 @@ export const SectionTextAboutUs = styled.section`
     margin-bottom: 2vh;
   }
 
-  p {
-    font-size: 0.8rem;
-  }
 `;
 
 export const DivImgAboutUS = styled.div`
+  width: 50%;
   display: flex;
+  justify-content: center;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -51,8 +81,8 @@ export const DivImgAboutUS = styled.div`
 `;
 
 export const ImgAboutUsStyled = styled(Image)`
-  width: 593px;
-  height: 595px;
+  width: 400px;
+  height: 400px;
   @media (max-width: 768px) {
     flex-wrap: wrap;
     width: 300px;
