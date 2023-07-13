@@ -39,7 +39,7 @@ export function Reviews() {
   return (
     <ContainerReviews>
       <TitleReviews>Veja o que outros colaboradores dizem!</TitleReviews>
-        <AliceCarouselStyled disableButtonsControls items={items} responsive={itemsVisibles}/>
+        <AliceCarouselStyled disableButtonsControls items={items} responsive={itemsVisibles} />
       
         
     </ContainerReviews>

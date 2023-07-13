@@ -1,5 +1,5 @@
 import { DivImgAboutUS, ImgAboutUsStyled, SectionContainer, SectionTextAboutUs, TitleAboutUs } from "./SobreNos.styles";
-import imgAboutUs from "../../assets/svg/Imagem.svg";
+import imgAboutUs from "../../assets/svg/about-us.svg";
 
 export function SobreNos(){
     return (
