@@ -8,6 +8,13 @@ export const SectionJourney = styled.section`
     background-color:var(--beige);
     width: 100%;
     height: 934px;
+
+    > h1{
+        padding-top: 17vh;
+        text-align: center;
+        font-family: inherit;
+        color: var(--white);
+    }
 `
 
 
@@ -17,7 +24,7 @@ export const AliceCarouselStyled = styled(AliceCarousel)`
 
 export const Containerjourneys = styled.section`
     width: 100%;
-    margin-top: 90px;
+    margin-top: 5vh;
     margin-left: 2vw;
     margin-right: 2vw;
     margin-bottom: 3.31rem;
@@ -29,7 +36,7 @@ export const Containerjourneys = styled.section`
 
 export const WaveTop = styled(Image)`
     position: absolute;
-    top: -17vh;
+    top: -18vh;
     left: 0;
     width: 100%;
     object-fit: cover;

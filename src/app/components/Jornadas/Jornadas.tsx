@@ -27,7 +27,7 @@ const itemsVisibles = {
       itemsFit: 'contain',
   },
   1440:{
-      items: 3,
+      items: 4,
       itemsFit: 'contain',
   }
   }
