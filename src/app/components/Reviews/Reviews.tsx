@@ -1,31 +1,47 @@
+import React from 'react';
+
+
+
 import {
-    AvatarCard,
-  ContainerCard,
+  AliceCarouselStyled,
   ContainerReviews,
-  DivAvatar,
-  DivContent,
-  DivStar,
   TitleReviews,
 } from "./Reviews.styles";
 
-import imgTeste from "../../assets/img/bgImage.png"
+import { Card } from "./Card/Card";
+
+const items = [
+  <Card/>,
+   <Card/>,
+   <Card/>,
+   <Card/>,
+   <Card/>,
+   <Card/>
+];
+
+const itemsVisibles = {
+  768: {
+    items: 1,
+    
+},
+1024: {
+    items: 2,
+    itemsFit: 'contain',
+},
+1440:{
+    items: 3,
+    itemsFit: 'contain',
+}
+}
+
 
 export function Reviews() {
   return (
     <ContainerReviews>
       <TitleReviews>Veja o que outros colaboradores dizem!</TitleReviews>
-      <ContainerCard>
-        <DivAvatar>
-            <AvatarCard src={imgTeste} alt=""/>
-        </DivAvatar>
-        <DivContent>
-            <h5>Levi Ciarrochi</h5>
-            <DivStar>Estrelas</DivStar>
-            <p>Que oportunidade incrível,Consigo ver o futuro dos
-            Academy brilhando aqui.Vejo que tem muito como
-            melhorar, mas está indo</p>
-        </DivContent>
-      </ContainerCard>
+        <AliceCarouselStyled disableButtonsControls items={items} responsive={itemsVisibles}/>
+      
+        
     </ContainerReviews>
   );
 }
