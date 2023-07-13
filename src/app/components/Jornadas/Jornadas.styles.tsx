@@ -24,7 +24,7 @@ export const AliceCarouselStyled = styled(AliceCarousel)`
 
 export const Containerjourneys = styled.section`
     width: 100%;
-    margin-top: 5vh;
+    margin-top: 4vh;
     margin-left: 2vw;
     margin-right: 2vw;
     margin-bottom: 3.31rem;
@@ -36,7 +36,7 @@ export const Containerjourneys = styled.section`
 
 export const WaveTop = styled(Image)`
     position: absolute;
-    top: -18vh;
+    top: -17vh;
     left: 0;
     width: 100%;
     object-fit: cover;

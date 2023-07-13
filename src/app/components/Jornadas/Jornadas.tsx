@@ -22,7 +22,7 @@ const itemsVisibles = {
       items: 1,
       
   },
-  1024: {
+  769: {
       items: 2,
       itemsFit: 'contain',
   },

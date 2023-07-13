@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 
 export const DivCard = styled.div`
   width: 100%;
+  height: 31.25rem;
   display: flex;
   justify-content: center;
   
