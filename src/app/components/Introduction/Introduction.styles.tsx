@@ -3,6 +3,15 @@
 import { styled } from "styled-components";
 import Image from "next/image";
 
+
+export const buttonStyle = {
+  width: "160px",
+  padding: "10px 20px",
+  filter: "drop-shadow(0px 2.075442314147949px 4.538300514221191px rgba(194, 142, 91, 0.07)) drop-shadow(0px 4.987576484680176px 10.906167030334473px rgba(194, 142, 91, 0.10)) drop-shadow(0px 9.39116382598877px 20.53534507751465px rgba(194, 142, 91, 0.12)) drop-shadow(0px 16.75223159790039px 36.63154602050781px rgba(194, 142, 91, 0.14)) drop-shadow(0px 31.333206176757812px 68.5152816772461px rgba(194, 142, 91, 0.17)) drop-shadow(0px 75px 164px rgba(194, 142, 91, 0.24))"
+}
+
+
+
 export const TagSection = styled.section`
   position: relative;
   height: 906px;

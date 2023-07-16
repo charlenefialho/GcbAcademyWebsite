@@ -3,6 +3,13 @@
 import Link from "next/link";
 import styled from "styled-components";
 
+export const buttonHeaderStyles = {
+  width: "122px",
+  fontSize: "16px",
+  padding: "10px 20px",
+  marginRight: "8vw"
+}
+
 
 export const TagHeader = styled.header`
   height: calc(6rem - 3px);

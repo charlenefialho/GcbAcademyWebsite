@@ -2,8 +2,6 @@ import * as S from "./Newsletter.styles";
 import imgNewsLetter from "../../assets/svg/news-letter.svg";
 
 
-
-
 export function Newsletter(){
     return(
         <S.NewsLetterContainer>
@@ -18,7 +16,7 @@ export function Newsletter(){
                         </div>
                         <S.WrapperButton>
                             <input type="text" placeholder="Seu e-mail aqui"/>
-                            <S.ButtonInput>Assine</S.ButtonInput>
+                            <S.ButtonInput content="Assine">Assine</S.ButtonInput>
                         </S.WrapperButton>
                     </div>
                 </div>

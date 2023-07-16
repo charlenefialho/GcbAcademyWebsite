@@ -39,7 +39,7 @@ export const ButtonInput = styled.button`
     transform: translateX(-40%);
     width: 30%;
   }
-`;
+`
 
 export const SectionNewsLetter = styled.section`
   display: flex;
