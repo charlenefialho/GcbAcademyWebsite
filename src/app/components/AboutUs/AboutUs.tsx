@@ -1,4 +1,4 @@
-import { DivImgAboutUS, ImgAboutUsStyled, SectionAboutUs, SectionTextAboutUs, TitleAboutUs ,ContainerAbouUs} from "./SobreNos.styles";
+import { DivImgAboutUS, ImgAboutUsStyled, SectionAboutUs, SectionTextAboutUs, TitleAboutUs ,ContainerAbouUs} from "./AboutUs.styles";
 import imgAboutUs from "../../assets/svg/about-us.svg";
 
 export function SobreNos(){
