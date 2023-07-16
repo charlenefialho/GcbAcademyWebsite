@@ -2,7 +2,6 @@
 
 import { styled } from "styled-components";
 import Image from "next/image";
-import { Button } from "../Button/Button";
 
 export const TagSection = styled.section`
   position: relative;
@@ -13,15 +12,25 @@ export const TagSection = styled.section`
 export const Container = styled.section`
   position: absolute;
   height: 100vh;
-  top: 20vh;
+  top: 15rem;
   left: 10vw;
   display: flex;
   flex-direction: column;
 
   @media(max-width: 768px){
-    justify-items: center;
-    align-content: center;
     width: 100%;
+    left: 0;
+
+    .divTitle, div,.divSubTitle{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div{
+      margin-top: 2rem;
+    }
   }
 `;
 
@@ -39,11 +48,30 @@ export const Title = styled.h1`
   line-height: 60px;
   max-width: 80%;
 
-  @media(max-width: 768px){
+  @media(min-width: 1024px){
+    max-width: 45%;
+    text-align: left;
+    font-size: max(1rem, 3vw);
+  }
+
+  @media(min-width: 768px) and (max-width:1024px){
+    max-width: 50%;
+    font-size: 2.1rem;
+  }
+
+  @media(min-width: 426px) and (max-width:768px){
+    max-width: 80%;
+    text-align: center;
+    font-size: 2.1rem;
+  }
+
+  @media(max-width: 426px){
     max-width: 90%;
     text-align: center;
-    font-size: calc(2rem + 0.125px);
+    font-size: 2rem;
   }
+
+  
 `;
 
 export const subTitle = styled.p`
@@ -53,12 +81,25 @@ export const subTitle = styled.p`
   color: var(--black);
   font-family: inherit;
 
-  @media(max-width: 768px){
-    max-width: 80%;
+  @media(min-width:1024px){
+    max-width: 30%;
+    font-size: max(1rem, 1.4vw);
+  }
+
+  @media(min-width: 768px) and (max-width:1024px){
+    max-width: 40%;
+    font-size: 1rem;
+  }
+
+  @media(min-width: 426px) and (max-width:768px){
+    max-width: 70%;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  @media(max-width: 426px){
+    text-align: justify;
+    max-width: 90%;
     text-align: center;
   }
-`;
-
-export const ButtonStyled = styled(Button)`
-  
 `;

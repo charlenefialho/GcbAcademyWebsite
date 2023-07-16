@@ -7,7 +7,7 @@ import { ButtonStyledProps } from "./Button";
 export const  ButtonStyled = styled.button<ButtonStyledProps>`
     font-family: inherit;
     font-weight: 700;
-    margin-right: 100px;
+    //margin-right: 100px;
     border-radius: var(--border-radius);
     background-color: var(--beige);
     width: 122px;
