@@ -4,9 +4,9 @@ import imgAboutUs from "../../assets/svg/about-us.svg";
 export function SobreNos(){
     return (
         <SectionAboutUs>
-            <div className="ivTitle">
+            <div className="divTitle">
                     <TitleAboutUs>Sobre nós</TitleAboutUs>
-                </div>
+            </div>
             <ContainerAbouUs>
                 
                 <SectionTextAboutUs>

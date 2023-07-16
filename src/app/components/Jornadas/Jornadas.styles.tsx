@@ -36,7 +36,7 @@ export const Containerjourneys = styled.section`
 
 export const WaveTop = styled(Image)`
     position: absolute;
-    top: -17vh;
+    top: -8rem;
     left: 0;
     width: 100%;
     object-fit: cover;
@@ -46,7 +46,7 @@ export const WaveTop = styled(Image)`
 
 export const WaveBottom = styled(Image)`
     position: absolute;
-    bottom: -19vh;
+    bottom: -8rem;
     left: 0;
     width: 100%;
     object-fit: cover;

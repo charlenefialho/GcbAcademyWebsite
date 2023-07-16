@@ -36,7 +36,7 @@ export const CardContent = styled.div`
   height: 113px;
   background-color: var(--white);
   position: absolute;
-  top: 45vh;
+  top: 18rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
