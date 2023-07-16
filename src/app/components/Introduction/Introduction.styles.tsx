@@ -21,13 +21,14 @@ export const TagSection = styled.section`
 export const Container = styled.section`
   position: absolute;
   height: 100vh;
-  top: 15rem;
+  top: 13rem;
   left: 10vw;
   display: flex;
   flex-direction: column;
 
   @media(max-width: 768px){
     width: 100%;
+    top: 8rem;
     left: 0;
 
     .divTitle, div,.divSubTitle{
