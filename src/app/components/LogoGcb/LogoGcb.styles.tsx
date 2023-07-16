@@ -6,7 +6,7 @@ import { styled } from "styled-components";
 
 export const ImageStyledProps = styled(Image)`
     @media (min-width: 768px) {
-        margin-left: 100px;
+        margin-left: 4vw;
         margin-top: 20px;
         margin-bottom: 21px;
         width: calc(10rem + 15px);
