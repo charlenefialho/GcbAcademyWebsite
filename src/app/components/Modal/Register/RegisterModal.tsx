@@ -11,6 +11,7 @@ import {
   InputModal,
   buttonStyleModal,
 } from "../Modal.styles";
+import { User, WarningCircle } from "@phosphor-icons/react";
 import { Button } from "../../Button/Button";
 import Link from "next/link";
 
@@ -19,9 +20,12 @@ export interface Modal {
   setOpen: (isOpen: boolean) => void;
 }
 
-export function LoginModal({ isOpen, setOpen }: Modal) {
+export function RegisterModal({ isOpen, setOpen }: Modal) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -33,16 +37,19 @@ export function LoginModal({ isOpen, setOpen }: Modal) {
         <Container>
           <Content>
             <ModalHeader>
-              <h4>Entrar</h4>
+              <h4>Registrar</h4>
               <button onClick={() => setOpen(!isOpen)}>
                 <Image src={xCircle} alt="" />
               </button>
             </ModalHeader>
-            <p className="SubText">
-              Entre na sua conta para continuar o processo
-            </p>
-
             <form onSubmit={handleSubmit}>
+              <InputModal>
+                <InputContent placeholder="Nome Completo" type="text" />
+                <IconSpan>
+                  <User size={24} />
+                </IconSpan>
+              </InputModal>
+
               <InputModal>
                 <InputContent placeholder="E-mail" type="email" />
                 <IconSpan>
@@ -55,16 +62,30 @@ export function LoginModal({ isOpen, setOpen }: Modal) {
                   <Image src={padlockIcon} width={24} height={24} alt="" />
                 </IconSpan>
               </InputModal>
+              <span>
+                <WarningCircle size={16} />
+                Mínimo de 8 caracteres, no mínimo um número e um caractere
+                especial
+              </span>
+              <InputModal>
+                <InputContent
+                  placeholder="Confirmação de senha"
+                  type="password"
+                />
+                <IconSpan>
+                  <Image src={padlockIcon} width={24} height={24} alt="" />
+                </IconSpan>
+              </InputModal>
               <section className="useTermsCheckBox">
-                <input type="checkbox" name="useTerms" id="useTerms" /> Lembra
-                minha conta
+                <input type="checkbox" name="useTerms" id="useTerms" /> Eu li,
+                concordo e aceito o <Link href="#">Termos e Condições</Link>
               </section>
               <Button content="Criar" styles={buttonStyleModal} visible />
             </form>
 
             <div className="divTextQuestion">
               <span className="textQuestion">
-                Não tem uma conta?{" "}
+                Já tem uma conta?{" "}
                 <Link href="#" className="linkTextQuestion">
                   Entrar
                 </Link>
