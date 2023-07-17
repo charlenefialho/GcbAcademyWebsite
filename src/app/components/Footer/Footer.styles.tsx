@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { styled } from "styled-components";
 
-
-
 export const SectionFooter = styled.section`
   position: relative;
   margin-top: 35vh;
@@ -16,6 +14,27 @@ export const ContainerFooter = styled.section`
   padding: 0 4%;
   margin: auto;
   background-color: var(--beige);
+
+  .divThanks {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  hr {
+    border-color: var(--white);
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .thanks {
+    width: 100%;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    color: var(--white);
+    text-align: center;
+    font-family: inherit;
+    font-weight: 400;
+  }
 `;
 
 export const BackgroundWave = styled(Image)`
@@ -35,7 +54,7 @@ export const ColFooter = styled.div`
   width: 25%;
   padding: 0 15px;
 
-  .divLogo{
+  .divLogo {
     display: flex;
     justify-content: center;
   }
@@ -50,7 +69,7 @@ export const ColFooter = styled.div`
     position: relative;
   }
 
-  .redesSociais{
+  .redesSociais {
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -58,7 +77,6 @@ export const ColFooter = styled.div`
   }
 
   ul {
-    
     list-style: none;
   }
 

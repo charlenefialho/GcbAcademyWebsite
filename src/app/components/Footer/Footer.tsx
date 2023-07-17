@@ -1,8 +1,11 @@
 import * as S from "./Footer.styles";
 import waveFooter from "../../assets/svg/wave-footer.svg";
-import { FacebookLogo, InstagramLogo, TwitterLogo } from "@phosphor-icons/react";
+import {
+  FacebookLogo,
+  InstagramLogo,
+  TwitterLogo,
+} from "@phosphor-icons/react";
 import { LogoGcb } from "../LogoGcb/LogoGcb";
-
 
 export function Footer() {
   return (
@@ -11,18 +14,25 @@ export function Footer() {
       <S.ContainerFooter>
         <S.RowFooter>
           <S.ColFooter>
-                <div className="divLogo">
-                    <LogoGcb light />
-                </div>
+            <div className="divLogo">
+              <LogoGcb light />
+            </div>
             <ul className="redesSociais">
               <li>
-                <a href="#"><FacebookLogo size={28} color="#ffff" weight="fill" /></a>
+                <a href="#">
+                  <FacebookLogo size={28} color="#ffff" weight="fill" />
+                </a>
               </li>
               <li>
-                <a href=""><InstagramLogo size={28} color="#ffff" weight="fill" /> </a>
+                <a href="#">
+                  <InstagramLogo size={28} color="#ffff" weight="fill" />{" "}
+                </a>
               </li>
               <li>
-                <a href=""> <TwitterLogo size={28} color="#ffff" weight="fill" /> </a>
+                <a href="#">
+                  {" "}
+                  <TwitterLogo size={28} color="#ffff" weight="fill" />{" "}
+                </a>
               </li>
             </ul>
           </S.ColFooter>
@@ -50,19 +60,34 @@ export function Footer() {
             <h4>Empresas</h4>
             <ul>
               <li>
-                <a target="_blank" href="https://gcbinvestimentos.com/"> GCB Investimentos</a>
+                <a target="_blank" href="https://gcbinvestimentos.com/">
+                  {" "}
+                  GCB Investimentos
+                </a>
               </li>
               <li>
-                <a target="_blank" href="https://adiantesa.com/"> Adiante Recebíveis </a>
+                <a target="_blank" href="https://adiantesa.com/">
+                  {" "}
+                  Adiante Recebíveis{" "}
+                </a>
               </li>
               <li>
-                <a target="_blank" href="https://peerbr.com/"> PeerBR </a>
+                <a target="_blank" href="https://peerbr.com/">
+                  {" "}
+                  PeerBR{" "}
+                </a>
               </li>
               <li>
-                <a target="_blank" href="https://fmisa.com.br/"> FMI</a>
+                <a target="_blank" href="https://fmisa.com.br/">
+                  {" "}
+                  FMI
+                </a>
               </li>
               <li>
-                <a target="_blank" href="https://bmspartners.com.br/"> BMS Partners</a>
+                <a target="_blank" href="https://bmspartners.com.br/">
+                  {" "}
+                  BMS Partners
+                </a>
               </li>
             </ul>
           </S.ColFooter>
@@ -78,6 +103,12 @@ export function Footer() {
             </ul>
           </S.ColFooter>
         </S.RowFooter>
+        <div className="divThanks">
+          <hr />
+          <p className="thanks">
+            developed with ♥ by Charlene Fialho. Thanks!!{" "}
+          </p>
+        </div>
       </S.ContainerFooter>
     </S.SectionFooter>
   );
