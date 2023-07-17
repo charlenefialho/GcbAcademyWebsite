@@ -1,19 +1,16 @@
+"use client";
+
 import React, { useState, FormEvent } from "react";
+import { User, WarningCircle } from "@phosphor-icons/react";
+import Link from "next/link";
 import Image from "next/image";
 
-import { Background, Container, Content, ModalHeader } from "../Modal.styles";
+import * as S from "../Modal.styles";
 import xCircle from "../../../assets/svg/icon-x-circle.svg";
 import emailIcon from "../../../assets/svg/email-icon.svg";
 import padlockIcon from "../../../assets/svg//pad-lock-icon.svg";
-import {
-  IconSpan,
-  InputContent,
-  InputModal,
-  buttonStyleModal,
-} from "../Modal.styles";
-import { User, WarningCircle } from "@phosphor-icons/react";
+import { Background, Container, Content, ModalHeader } from "../Modal.styles";
 import { Button } from "../../Button/Button";
-import Link from "next/link";
 
 export interface Modal {
   isOpen: boolean;
@@ -43,44 +40,44 @@ export function RegisterModal({ isOpen, setOpen }: Modal) {
               </button>
             </ModalHeader>
             <form onSubmit={handleSubmit}>
-              <InputModal>
-                <InputContent placeholder="Nome Completo" type="text" />
-                <IconSpan>
+              <S.InputModal>
+                <S.InputContent placeholder="Nome Completo" type="text" />
+                <S.IconSpan>
                   <User size={24} />
-                </IconSpan>
-              </InputModal>
+                </S.IconSpan>
+              </S.InputModal>
 
-              <InputModal>
-                <InputContent placeholder="E-mail" type="email" />
-                <IconSpan>
+              <S.InputModal>
+                <S.InputContent placeholder="E-mail" type="email" />
+                <S.IconSpan>
                   <Image src={emailIcon} width={24} height={24} alt="" />
-                </IconSpan>
-              </InputModal>
-              <InputModal>
-                <InputContent placeholder="Senha" type="password" />
-                <IconSpan>
+                </S.IconSpan>
+              </S.InputModal>
+              <S.InputModal>
+                <S.InputContent placeholder="Senha" type="password" />
+                <S.IconSpan>
                   <Image src={padlockIcon} width={24} height={24} alt="" />
-                </IconSpan>
-              </InputModal>
+                </S.IconSpan>
+              </S.InputModal>
               <span>
                 <WarningCircle size={16} />
                 Mínimo de 8 caracteres, no mínimo um número e um caractere
                 especial
               </span>
-              <InputModal>
-                <InputContent
+              <S.InputModal>
+                <S.InputContent
                   placeholder="Confirmação de senha"
                   type="password"
                 />
-                <IconSpan>
+                <S.IconSpan>
                   <Image src={padlockIcon} width={24} height={24} alt="" />
-                </IconSpan>
-              </InputModal>
+                </S.IconSpan>
+              </S.InputModal>
               <section className="useTermsCheckBox">
                 <input type="checkbox" name="useTerms" id="useTerms" /> Eu li,
                 concordo e aceito o <Link href="#">Termos e Condições</Link>
               </section>
-              <Button content="Criar" styles={buttonStyleModal} visible />
+              <Button content="Criar" styles={S.buttonStyleModal} visible />
             </form>
 
             <div className="divTextQuestion">

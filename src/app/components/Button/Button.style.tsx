@@ -1,12 +1,11 @@
 "use client";
 
-import { styled ,css} from "styled-components";
+import { styled, css } from "styled-components";
 
 export interface ButtonStyledProps {
   visible?: boolean;
   styles?: Record<string, string>;
 }
-
 
 export const ButtonStyled = styled.button<ButtonStyledProps>`
   ${({ styles }) => (styles ? css(styles) : null)}

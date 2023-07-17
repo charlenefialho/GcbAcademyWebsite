@@ -1,5 +1,8 @@
-import { styled } from "styled-components";
+"use client";
+
 import React from "react";
+import AliceCarousel from "react-alice-carousel";
+
 import * as S from "./Journey.styles";
 import ImgWaveTop from "../../assets/svg/wave-top.svg";
 import ImgWaveBottom from "../../assets/svg/wave-bottom.svg";
@@ -34,7 +37,7 @@ export function Jornada() {
       <S.WaveTop src={ImgWaveTop} alt="wave" />
       <h1>Jornadas</h1>
       <S.Containerjourneys>
-        <S.AliceCarouselStyled
+        <AliceCarousel
           disableButtonsControls
           items={itensCard}
           responsive={itemsVisibles}

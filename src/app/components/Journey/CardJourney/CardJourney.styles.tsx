@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { styled } from "styled-components";
 
@@ -6,10 +8,9 @@ export const DivCard = styled.div`
   height: 31.25rem;
   display: flex;
   justify-content: center;
-  
-`
+`;
 
- export const CardContainer = styled.div`
+export const CardContainer = styled.div`
   width: 277px;
   height: 405px;
   position: relative;
@@ -17,20 +18,19 @@ export const DivCard = styled.div`
 
 export const CardContent = styled.div`
   border-radius: 20px;
-  background-color: #FFAC52;
+  background-color: #ffac52;
   width: 100%;
   height: 90%;
+`;
 
-`
-
- export const ImageCard = styled(Image)`
+export const ImageCard = styled(Image)`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -70%);
 `;
 
- export const MiniContainer = styled.div`
+export const MiniContainer = styled.div`
   border-radius: 20px;
   width: 251px;
   height: 113px;
@@ -47,7 +47,6 @@ export const CardContent = styled.div`
   padding: 10px;
 `;
 
-
 export const TitleMiniContainer = styled.h3`
   font-family: inherit;
   color: var(--beige-800);
@@ -61,13 +60,4 @@ export const Text = styled.p`
 export const StarsContainer = styled.div`
   width: 98px;
   height: 18px;
-  
 `;
-
-
-
-
-
-
-
-

@@ -1,18 +1,15 @@
+"use client";
+
 import React, { useState, FormEvent } from "react";
+import Link from "next/link";
 import Image from "next/image";
 
-import { Background, Container, Content, ModalHeader } from "../Modal.styles";
+import * as S from "../Modal.styles";
 import xCircle from "../../../assets/svg/icon-x-circle.svg";
 import emailIcon from "../../../assets/svg/email-icon.svg";
 import padlockIcon from "../../../assets/svg//pad-lock-icon.svg";
-import {
-  IconSpan,
-  InputContent,
-  InputModal,
-  buttonStyleModal,
-} from "../Modal.styles";
+import { Background, Container, Content, ModalHeader } from "../Modal.styles";
 import { Button } from "../../Button/Button";
-import Link from "next/link";
 
 export interface Modal {
   isOpen: boolean;
@@ -43,23 +40,23 @@ export function LoginModal({ isOpen, setOpen }: Modal) {
             </p>
 
             <form onSubmit={handleSubmit}>
-              <InputModal>
-                <InputContent placeholder="E-mail" type="email" />
-                <IconSpan>
+              <S.InputModal>
+                <S.InputContent placeholder="E-mail" type="email" />
+                <S.IconSpan>
                   <Image src={emailIcon} width={24} height={24} alt="" />
-                </IconSpan>
-              </InputModal>
-              <InputModal>
-                <InputContent placeholder="Senha" type="password" />
-                <IconSpan>
+                </S.IconSpan>
+              </S.InputModal>
+              <S.InputModal>
+                <S.InputContent placeholder="Senha" type="password" />
+                <S.IconSpan>
                   <Image src={padlockIcon} width={24} height={24} alt="" />
-                </IconSpan>
-              </InputModal>
+                </S.IconSpan>
+              </S.InputModal>
               <section className="useTermsCheckBox">
                 <input type="checkbox" name="useTerms" id="useTerms" /> Lembra
                 minha conta
               </section>
-              <Button content="Criar" styles={buttonStyleModal} visible />
+              <Button content="Criar" styles={S.buttonStyleModal} visible />
             </form>
 
             <div className="divTextQuestion">

@@ -1,11 +1,15 @@
+"use client";
+
+import React from "react";
+
 import * as S from "./Footer.styles";
+import { LogoGcb } from "../LogoGcb/LogoGcb";
 import waveFooter from "../../assets/svg/wave-footer.svg";
 import {
   FacebookLogo,
   InstagramLogo,
   TwitterLogo,
 } from "@phosphor-icons/react";
-import { LogoGcb } from "../LogoGcb/LogoGcb";
 
 export function Footer() {
   return (

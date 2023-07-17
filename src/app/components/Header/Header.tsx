@@ -1,40 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 
-import {
-  TagHeader,
-  NavLinks,
-  NavLink,
-  buttonHeaderStyles,
-} from "./Header.styles";
+import * as S from "./Header.styles";
 import { LogoGcb } from "../LogoGcb/LogoGcb";
 import { MenuMobile } from "../MenuMobile/MenuMobile";
 import { Button } from "../Button/Button";
 import { LoginModal } from "../Modal/Login/LoginModal";
 
-interface HeaderProps {}
-
-export function Header(props: HeaderProps) {
+export function Header() {
   const [ModalOpen, setModalOpen] = useState<boolean>(false);
 
   return (
-    <TagHeader>
+    <S.TagHeader>
       <MenuMobile isOpen={false} />
-      <LogoGcb mediaHeader/>
-      <NavLinks>
-        <NavLink href="#">Introdução</NavLink>
-        <NavLink href="#">Jornadas</NavLink>
-        <NavLink href="#">Sobre nós</NavLink>
-      </NavLinks>
+      <LogoGcb mediaHeader />
+      <S.NavLinks>
+        <S.NavLink href="#">Introdução</S.NavLink>
+        <S.NavLink href="#">Jornadas</S.NavLink>
+        <S.NavLink href="#">Sobre nós</S.NavLink>
+      </S.NavLinks>
       <Button
         content="Entrar"
         visible={false}
-        styles={buttonHeaderStyles}
+        styles={S.buttonHeaderStyles}
         onClick={() => setModalOpen(!ModalOpen)}
       ></Button>
 
       <LoginModal isOpen={ModalOpen} setOpen={setModalOpen} />
-    </TagHeader>
+    </S.TagHeader>
   );
 }
