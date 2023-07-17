@@ -7,8 +7,11 @@ export const buttonHeaderStyles = {
   width: "122px",
   fontSize: "16px",
   padding: "10px 20px",
-  marginRight: "8vw"
-}
+  marginRight: "8vw",
+};
+
+
+  
 
 
 export const TagHeader = styled.header`
@@ -35,8 +38,8 @@ export const NavLinks = styled.ul`
   align-items: center;
   gap: 64px;
 
-  @media(min-width: 769px)and (max-width:1024px){
-    justify-content:center;
+  @media (min-width: 769px) and (max-width: 1024px) {
+    justify-content: center;
     gap: 30px;
   }
 
@@ -53,4 +56,4 @@ export const NavLink = styled(Link)`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-`
+`;

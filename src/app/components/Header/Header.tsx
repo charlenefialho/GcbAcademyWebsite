@@ -12,7 +12,6 @@ import { LogoGcb } from "../LogoGcb/LogoGcb";
 import { MenuMobile } from "../MenuMobile/MenuMobile";
 import { Button } from "../Button/Button";
 import { LoginModal } from "../Modal/Login/LoginModal";
-import { RegisterModal } from "../Modal/Register/RegisterModal";
 
 interface HeaderProps {}
 
@@ -22,7 +21,7 @@ export function Header(props: HeaderProps) {
   return (
     <TagHeader>
       <MenuMobile isOpen={false} />
-      <LogoGcb />
+      <LogoGcb mediaHeader/>
       <NavLinks>
         <NavLink href="#">Introdução</NavLink>
         <NavLink href="#">Jornadas</NavLink>
