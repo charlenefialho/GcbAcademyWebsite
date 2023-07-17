@@ -10,6 +10,7 @@ import emailIcon from "../../../assets/svg/email-icon.svg";
 import padlockIcon from "../../../assets/svg//pad-lock-icon.svg";
 import { Background, Container, Content, ModalHeader } from "../Modal.styles";
 import { Button } from "../../Button/Button";
+import { RegisterModal } from "../Register/RegisterModal";
 
 export interface Modal {
   isOpen: boolean;
@@ -17,6 +18,7 @@ export interface Modal {
 }
 
 export function LoginModal({ isOpen, setOpen }: Modal) {
+  const [modalRegisterOpen, setModalRegisterOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -62,11 +64,13 @@ export function LoginModal({ isOpen, setOpen }: Modal) {
             <div className="divTextQuestion">
               <span className="textQuestion">
                 Não tem uma conta?{" "}
-                <Link href="#" className="linkTextQuestion">
-                  Entrar
+                <Link href="#" onClick={() => setModalRegisterOpen(!modalRegisterOpen)} className="linkTextQuestion">
+                  Cadastrar
                 </Link>
               </span>
             </div>
+
+            <RegisterModal isOpen={modalRegisterOpen} setOpen={setModalRegisterOpen} />
           </Content>
         </Container>
       </Background>
