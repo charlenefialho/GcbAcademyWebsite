@@ -1,6 +1,12 @@
-"use client";
+'use client';
 
 import { styled } from "styled-components";
+import AliceCarousel from "react-alice-carousel";
+import 'react-alice-carousel/lib/alice-carousel.css';
+
+export const AliceCarouselStyled = styled(AliceCarousel)`
+  
+`
 
 export const ContainerReviews = styled.section`
   width: 100%;

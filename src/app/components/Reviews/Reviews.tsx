@@ -1,7 +1,6 @@
-"use client";
+'use client';
 
 import React from "react";
-import AliceCarousel from "react-alice-carousel";
 
 import * as S from "./Reviews.styles";
 import { Card } from "./Card/Card";
@@ -26,7 +25,7 @@ export function Reviews() {
   return (
     <S.ContainerReviews>
       <S.TitleReviews>Veja o que outros colaboradores dizem!</S.TitleReviews>
-      <AliceCarousel
+      <S.AliceCarouselStyled
         disableButtonsControls
         items={items}
         responsive={itemsVisibles}
