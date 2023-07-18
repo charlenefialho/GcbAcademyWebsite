@@ -131,7 +131,7 @@ export function LoginModal({ isOpen, setOpen }: Modal) {
                   onClick={() => setModalRegisterOpen(!modalRegisterOpen)}
                   className="linkTextQuestion"
                 >
-                  Entrar
+                  Registre-se
                 </Link>
               </span>
             </div>
