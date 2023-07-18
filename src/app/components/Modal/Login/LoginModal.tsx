@@ -6,6 +6,7 @@ import Image from "next/image";
 import * as zod from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import * as fireBase from "firebase/auth"; 
 
 import * as S from "../Modal.styles";
 import xCircle from "../../../assets/svg/icon-x-circle.svg";
@@ -15,7 +16,6 @@ import { Background, Container, Content, ModalHeader } from "../Modal.styles";
 import { Button } from "../../Button/Button";
 import { RegisterModal } from "../Register/RegisterModal";
 import { login } from "../../../../../utils/firebase/authService";
-import { errorToJSON } from "next/dist/server/render";
 
 export interface Modal {
   isOpen: boolean;
@@ -48,8 +48,20 @@ export function LoginModal({ isOpen, setOpen }: Modal) {
     resolver: zodResolver(loginFormValidationSchema),
   });
 
-  function handleSubmitLogin(data: UserLogin) {
-    
+  const [loginError, setLoginError] = useState<string | null>(null);
+
+  async function handleSubmitLogin(data: UserLogin) {
+    try {
+      await login(data.email, data.password);
+      setLoginError('');
+    } catch (error) {
+      const firebaseError = error as fireBase.AuthError;
+      if (firebaseError.code === "auth/user-not-found" || firebaseError.code === "auth/wrong-password") {
+        setLoginError("E-mail ou senha inválidos.");
+      } else {
+        setLoginError("Ocorreu um erro no login. Por favor, tente novamente.");
+      }
+    }
   }
 
   if (isOpen) {
@@ -98,6 +110,7 @@ export function LoginModal({ isOpen, setOpen }: Modal) {
                   {errors.password.message}
                 </span>
               )}
+              {loginError && <p style={{ color: "#ff0000" }}>{loginError}</p>}
               <section className="useTermsCheckBox">
                 <input type="checkbox" name="useTerms" id="useTerms" /> Lembra
                 minha conta
