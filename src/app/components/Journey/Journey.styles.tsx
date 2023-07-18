@@ -34,7 +34,7 @@ export const WaveTop = styled(Image)`
   left: 0;
   width: 100%;
   object-fit: cover;
-  z-index: 1;
+  z-index: 0;
 `;
 
 export const WaveBottom = styled(Image)`
@@ -43,5 +43,5 @@ export const WaveBottom = styled(Image)`
   left: 0;
   width: 100%;
   object-fit: cover;
-  z-index: 1;
+  z-index: 0;
 `;

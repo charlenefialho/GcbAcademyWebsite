@@ -7,7 +7,7 @@ export const Background = styled.section`
   align-items: center;
   justify-content: center;
   position: fixed;
-  z-index: 2;
+  z-index: 5;
   left: 0;
   top: 0;
   width: 100%;
