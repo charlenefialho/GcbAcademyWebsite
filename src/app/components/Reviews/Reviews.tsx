@@ -26,7 +26,6 @@ export function Reviews() {
     <S.ContainerReviews>
       <S.TitleReviews>Veja o que outros colaboradores dizem!</S.TitleReviews>
       <S.AliceCarouselStyled
-        disableButtonsControls
         items={items}
         responsive={itemsVisibles}
       />

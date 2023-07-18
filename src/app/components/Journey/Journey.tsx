@@ -38,7 +38,6 @@ export function Jornada() {
       <h1>Jornadas</h1>
       <S.Containerjourneys>
         <AliceCarousel
-          disableButtonsControls
           items={itensCard}
           responsive={itemsVisibles}
         />
