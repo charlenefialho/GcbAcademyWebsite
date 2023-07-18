@@ -3,18 +3,25 @@
 import React from "react";
 
 import * as S from "./CardJourney.styles";
-import img from "../../../assets/svg/phone.svg";
 
-export function CardJourney() {
+interface cardJourney {
+  id:React.Key,
+  urlImg : string,
+  contentTitle: string,
+  content: string,
+  bgColor: string
+}
+
+export function CardJourney({id, urlImg, contentTitle, content, bgColor}: cardJourney) {
   return (
     <S.DivCard>
       <S.CardContainer>
-        <S.CardContent>
-          <S.ImageCard src={img} alt="Card Image" />
+        <S.CardContent style={{backgroundColor: bgColor}}>
+          <S.ImageCard src={urlImg} alt="Card Imagem" />
           <S.MiniContainer>
             <div>
-              <S.TitleMiniContainer>Mobile Developer</S.TitleMiniContainer>
-              <S.Text>41 Sugestões</S.Text>
+              <S.TitleMiniContainer>{contentTitle}</S.TitleMiniContainer>
+              <S.Text>{content}</S.Text>
               <S.StarsContainer>*****</S.StarsContainer>
             </div>
           </S.MiniContainer>

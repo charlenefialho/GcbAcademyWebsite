@@ -18,12 +18,13 @@ export const CardContainer = styled.div`
 
 export const CardContent = styled.div`
   border-radius: 20px;
-  background-color: #ffac52;
   width: 100%;
   height: 90%;
 `;
 
 export const ImageCard = styled(Image)`
+  width: 13.3125rem;
+  height: 13.3125rem;
   position: absolute;
   top: 50%;
   left: 50%;
