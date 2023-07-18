@@ -12,7 +12,7 @@ export const Overlay = styled(Dialog.Overlay)`
 `;
 
 export const Content = styled(Dialog.Content)`
-min-width: 32rem;
+  min-width: 32rem;
   border-radius: 6px;
   width: 200px;
   height: 200px;
@@ -22,8 +22,6 @@ min-width: 32rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  
 `;
 
 export const Container = styled.section`
@@ -38,10 +36,10 @@ export const Container = styled.section`
   border-radius: 0.9375rem;
   background: var(--color-light-light, #fcfcfd);
 
-  p{
+  p {
     width: 100%;
     color: #263238;
     text-align: justify;
     font-size: 1rem;
   }
-`
+`;
