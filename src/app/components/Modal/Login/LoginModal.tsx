@@ -18,9 +18,9 @@ import { Button } from "../../Button/Button";
 import { RegisterModal } from "../Register/RegisterModal";
 import { login } from "../../../../../utils/firebase/authService";
 
-export interface Modal {
-  isOpen: boolean;
-  setOpen: (isOpen: boolean) => void;
+export interface LoginModal {
+  isLoginOpen: boolean;
+  setLoginOpen: (isLoginOpen: boolean) => void;
 }
 
 interface UserLogin {
@@ -38,7 +38,7 @@ const loginFormValidationSchema = zod.object({
 
 type loginUserData = zod.infer<typeof loginFormValidationSchema>;
 
-export function LoginModal({ isOpen, setOpen }: Modal) {
+export function LoginModal({ isLoginOpen, setLoginOpen }: LoginModal) {
   const [modalRegisterOpen, setModalRegisterOpen] = useState(false);
 
   const {
@@ -61,7 +61,7 @@ export function LoginModal({ isOpen, setOpen }: Modal) {
       const user = await login(data.email, data.password);
       setLoginError('');
       reset();
-      setOpen(!open);
+      setLoginOpen(!isLoginOpen);
       toast.success(`Logado com sucesso`);
     } catch (error) {
       const firebaseError = error as fireBase.AuthError;
@@ -73,14 +73,14 @@ export function LoginModal({ isOpen, setOpen }: Modal) {
     }
   }
 
-  if (isOpen) {
+  if (isLoginOpen) {
     return (
       <Background>
         <Container>
           <Content>
             <ModalHeader>
               <h4>Entrar</h4>
-              <button onClick={() => setOpen(!isOpen)}>
+              <button onClick={() => setLoginOpen(!isLoginOpen)}>
                 <Image src={xCircle} alt="" />
               </button>
             </ModalHeader>
@@ -146,8 +146,8 @@ export function LoginModal({ isOpen, setOpen }: Modal) {
             </div>
 
             <RegisterModal
-              isOpen={modalRegisterOpen}
-              setOpen={setModalRegisterOpen}
+              isRegisterOpen={modalRegisterOpen}
+              setRegisterOpen={setModalRegisterOpen}
             />
           </Content>
         </Container>

@@ -27,7 +27,7 @@ export function Header() {
         onClick={() => setModalOpen(!ModalOpen)}
       ></Button>
 
-      <LoginModal isOpen={ModalOpen} setOpen={setModalOpen} />
+      <LoginModal isLoginOpen={ModalOpen} setLoginOpen={setModalOpen} />
     </S.TagHeader>
   );
 }

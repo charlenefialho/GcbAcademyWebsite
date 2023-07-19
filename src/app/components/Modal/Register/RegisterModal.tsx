@@ -14,10 +14,17 @@ import emailIcon from "../../../assets/svg/email-icon.svg";
 import padlockIcon from "../../../assets/svg//pad-lock-icon.svg";
 import { Background, Container, Content, ModalHeader } from "../Modal.styles";
 import { Button } from "../../Button/Button";
+import { userRegister } from "../../../../../utils/firebase/authService";
 
-export interface Modal {
-  isOpen: boolean;
-  setOpen: (isOpen: boolean) => void;
+interface RegisterModal {
+  isRegisterOpen: boolean;
+  setRegisterOpen: (isRegisterOpen: boolean) => void;
+}
+
+interface UserRegister{
+  userName: string,
+  email:string,
+  password: string
 }
 
 const registerFormValidationSchema = zod.object({
@@ -39,12 +46,26 @@ const registerFormValidationSchema = zod.object({
 
 type registerUserData = zod.infer<typeof registerFormValidationSchema>;
 
-export function RegisterModal({ isOpen, setOpen }: Modal) {
-  const handleSubmitRegister = (data: any) => {};
+export function RegisterModal({ isRegisterOpen, setRegisterOpen }: RegisterModal) {
+  async function handleSubmitUserRegister(data: UserRegister) {
+    try{
+      const user =  await userRegister({
+        name: data.userName,
+        email: data.email,
+        password: data.password,
+      })
+      console.log('usuario registrado', user)
+      reset();
+      setRegisterOpen(!isRegisterOpen);
+      
+    }catch(error){
+      console.log('ocorreu um erro');
+    }
+  }
 
   const {
     register,
-    handleSubmit,
+    handleSubmit,reset,
     formState: { errors },
   } = useForm<registerUserData>({
     resolver: zodResolver(registerFormValidationSchema),
@@ -52,18 +73,18 @@ export function RegisterModal({ isOpen, setOpen }: Modal) {
 
   console.log(errors);
 
-  if (isOpen) {
+  if (isRegisterOpen) {
     return (
       <Background>
         <Container>
           <Content>
             <ModalHeader>
               <h4>Registrar</h4>
-              <button onClick={() => setOpen(!isOpen)}>
+              <button onClick={() => setRegisterOpen(!isRegisterOpen)}>
                 <Image src={xCircle} alt="" />
               </button>
             </ModalHeader>
-            <form onSubmit={handleSubmit(handleSubmitRegister)}>
+            <form onSubmit={handleSubmit(handleSubmitUserRegister)}>
               <S.InputModal>
                 <S.InputContent
                   placeholder="Nome Completo"
