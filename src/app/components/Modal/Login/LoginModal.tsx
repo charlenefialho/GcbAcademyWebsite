@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState, FormEvent } from "react";
-import {toast} from 'react-toastify';
+import { toast } from "react-toastify";
 import Link from "next/link";
 import Image from "next/image";
 import * as zod from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import * as fireBase from "firebase/auth"; 
+import * as fireBase from "firebase/auth";
 
 import * as S from "../Modal.styles";
 import xCircle from "../../../assets/svg/icon-x-circle.svg";
@@ -24,8 +24,8 @@ export interface LoginModal {
 }
 
 interface UserLogin {
-  email: string,
-  password: string
+  email: string;
+  password: string;
 }
 
 const loginFormValidationSchema = zod.object({
@@ -33,7 +33,7 @@ const loginFormValidationSchema = zod.object({
     .string()
     .nonempty("Insira o email")
     .email("Informe um e-mail válido"),
-  password: zod.string().nonempty("Insira a senha")
+  password: zod.string().nonempty("Insira a senha"),
 });
 
 type loginUserData = zod.infer<typeof loginFormValidationSchema>;
@@ -48,10 +48,10 @@ export function LoginModal({ isLoginOpen, setLoginOpen }: LoginModal) {
     formState: { errors },
   } = useForm<loginUserData>({
     resolver: zodResolver(loginFormValidationSchema),
-    defaultValues:{
-      email: '',
-      password: ''
-    }
+    defaultValues: {
+      email: "",
+      password: "",
+    },
   });
 
   const [loginError, setLoginError] = useState<string | null>(null);
@@ -59,13 +59,18 @@ export function LoginModal({ isLoginOpen, setLoginOpen }: LoginModal) {
   async function handleSubmitLogin(data: UserLogin) {
     try {
       const user = await login(data.email, data.password);
-      setLoginError('');
+      setLoginError("");
       reset();
       setLoginOpen(!isLoginOpen);
-      toast.success(`Logado com sucesso`);
+      toast.success(
+        `Logado com sucesso. Bem vindo ${user.user.displayName?.toString()}`
+      );
     } catch (error) {
       const firebaseError = error as fireBase.AuthError;
-      if (firebaseError.code === "auth/user-not-found" || firebaseError.code === "auth/wrong-password") {
+      if (
+        firebaseError.code === "auth/user-not-found" ||
+        firebaseError.code === "auth/wrong-password"
+      ) {
         setLoginError("E-mail ou senha inválidos.");
       } else {
         setLoginError("Ocorreu um erro no login. Por favor, tente novamente.");

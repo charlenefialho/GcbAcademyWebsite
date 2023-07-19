@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, FormEvent } from "react";
+import { toast } from "react-toastify";
 import { User, WarningCircle } from "@phosphor-icons/react";
 import Link from "next/link";
 import Image from "next/image";
@@ -21,10 +22,10 @@ interface RegisterModal {
   setRegisterOpen: (isRegisterOpen: boolean) => void;
 }
 
-interface UserRegister{
-  userName: string,
-  email:string,
-  password: string
+interface UserRegister {
+  userName: string;
+  email: string;
+  password: string;
 }
 
 const registerFormValidationSchema = zod.object({
@@ -46,26 +47,29 @@ const registerFormValidationSchema = zod.object({
 
 type registerUserData = zod.infer<typeof registerFormValidationSchema>;
 
-export function RegisterModal({ isRegisterOpen, setRegisterOpen }: RegisterModal) {
+export function RegisterModal({
+  isRegisterOpen,
+  setRegisterOpen,
+}: RegisterModal) {
   async function handleSubmitUserRegister(data: UserRegister) {
-    try{
-      const user =  await userRegister({
+    try {
+      const user = await userRegister({
         name: data.userName,
         email: data.email,
         password: data.password,
-      })
-      console.log('usuario registrado', user)
+      });
+      toast.success(`Registrado com sucesso. Efetue o Login`);
       reset();
       setRegisterOpen(!isRegisterOpen);
-      
-    }catch(error){
-      console.log('ocorreu um erro');
+    } catch (error) {
+      toast.error("Ocorreu um erro tente novamente");
     }
   }
 
   const {
     register,
-    handleSubmit,reset,
+    handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<registerUserData>({
     resolver: zodResolver(registerFormValidationSchema),
