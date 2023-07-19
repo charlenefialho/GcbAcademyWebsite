@@ -71,7 +71,6 @@ export function ModalJourney({
   return (
     <GlobalModal titleModal={titleModal}>
       <p className="contentText">{contentTextModal}</p>
-      <button onClick={createListSuggestion}>clicar</button>
       <InputModal>
         <InputContent
           placeholder="Busque por uma sugestão"
