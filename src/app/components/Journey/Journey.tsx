@@ -58,11 +58,6 @@ export const infoCards = [
   },
 ];
 
-export const modalSuggest = infoCards.map((info) =>{
-  <CriarSugestao id={info.id} key={info.id} />
-})
-
-
 export const itemsCard = infoCards.map((info) => (
   <CardJourney
     id={info.id}
