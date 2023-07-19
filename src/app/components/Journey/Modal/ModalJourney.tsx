@@ -7,6 +7,7 @@ import { IconSpan, InputContent, InputModal } from "../../Modal/Modal.styles";
 import { MagnifyingGlass, WarningCircle } from "@phosphor-icons/react";
 import { GlobalModal } from "./GlobalModal";
 import { CriarSugestao } from "./CriarSugestao";
+import { VisualizarSugestao } from "./VisualizarSugestao";
 
 export function ModalJourney() {
   return (
@@ -64,12 +65,17 @@ export function ModalJourney() {
       </div>
 
       <div className="listaSugestoes">
-        <button className="buttonSugestao">
-          <div><WarningCircle size={24} />Assunto</div>
-          <div>
-            <p>Nome</p>
-          </div>
-        </button>
+        <Dialog.Root>
+          <Dialog.Trigger asChild>
+            <button className="buttonSugestao">
+              <div><WarningCircle size={24} />Assunto</div>
+              <div>
+                <p>Nome</p>
+              </div>
+            </button>
+          </Dialog.Trigger>
+            <VisualizarSugestao/>
+        </Dialog.Root>
         <button className="buttonSugestao">
           <div><WarningCircle size={24} />Assunto</div>
           <div>
