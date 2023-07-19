@@ -1,26 +1,77 @@
 "use client";
 
-import React, { useState, FormEvent } from "react";
+import React, { useState, FormEvent, useEffect } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
+import { getDatabase, ref, child, get, onValue, off } from "firebase/database";
 
 import { IconSpan, InputContent, InputModal } from "../../Modal/Modal.styles";
 import { MagnifyingGlass, WarningCircle } from "@phosphor-icons/react";
 import { GlobalModal } from "./GlobalModal";
 import { CriarSugestao } from "./CriarSugestao";
 import { VisualizarSugestao } from "./VisualizarSugestao";
+import { toast } from "react-toastify";
+import { Suggest } from "./Suggest";
 
-export interface IModalJourneyProps{
-  id:React.Key;
-  titleModal:string;
-  contentTextModal:string;
+export interface IModalJourneyProps {
+  id: React.Key;
+  titleModal: string;
+  contentTextModal: string;
 }
 
-export function ModalJourney({id, titleModal, contentTextModal} : IModalJourneyProps) {
+export interface ISuggestion {
+  id_jornada: string;
+  titulo: string;
+  descricao: string;
+}
+
+export function ModalJourney({
+  id,
+  titleModal,
+  contentTextModal,
+}: IModalJourneyProps) {
+  const [sugestoes, setSugestoes] = useState<ISuggestion[]>([]);
+  const formattedNameTable = `${titleModal
+    .toUpperCase()
+    .replace(/\s+/g, "_")
+    .replace(/_+$/, "")}`;
+
+    async function createListSuggestion() {
+      const db = await ref(getDatabase());
+      try {
+        onValue(child(db, formattedNameTable), (snapshot) => {
+          const suggestionData = snapshot.val();
+          if (suggestionData) {
+            const sugestoesList: ISuggestion[] = Object.keys(suggestionData).map(
+              (key) => ({
+                id_jornada: key,
+                titulo: suggestionData[key].titulo,
+                descricao: suggestionData[key].descricao,
+              })
+            );
+            setSugestoes(sugestoesList);
+            console.log(formattedNameTable);
+            console.log(sugestoesList);
+          } else {
+            console.log("Nenhum dado encontrado");
+          }
+        });
+      } catch (error) {
+        console.log("Erro ao obter os dados:", error);
+      }
+    }
+  
+    useEffect(() => {
+      createListSuggestion();
+      return () => {
+        off(child(ref(getDatabase()), formattedNameTable));
+      };
+    }, [formattedNameTable]);
+  
+
   return (
     <GlobalModal titleModal={titleModal}>
-      <p className="contentText">
-        {contentTextModal}
-      </p>
+      <p className="contentText">{contentTextModal}</p>
+      <button onClick={createListSuggestion}>clicar</button>
       <InputModal>
         <InputContent
           placeholder="Busque por uma sugestão"
@@ -35,7 +86,7 @@ export function ModalJourney({id, titleModal, contentTextModal} : IModalJourneyP
       >
         <Dialog.Root>
           <Dialog.Trigger asChild>
-              <button
+            <button
               content="Criar Sugestão"
               className="criarSugestao"
               style={{
@@ -50,10 +101,8 @@ export function ModalJourney({id, titleModal, contentTextModal} : IModalJourneyP
               Criar Sugestão
             </button>
           </Dialog.Trigger>
-              <CriarSugestao id={id} nameTable={titleModal}/>
+          <CriarSugestao id={id} nameTable={titleModal} />
         </Dialog.Root>
-
-        
       </div>
       <div
         style={{
@@ -67,23 +116,12 @@ export function ModalJourney({id, titleModal, contentTextModal} : IModalJourneyP
       </div>
 
       <div className="listaSugestoes">
-        <Dialog.Root>
-          <Dialog.Trigger asChild>
-            <button className="buttonSugestao">
-              <div><WarningCircle size={24} />Assunto</div>
-              <div>
-                <p>Nome</p>
-              </div>
-            </button>
-          </Dialog.Trigger>
-            <VisualizarSugestao/>
-        </Dialog.Root>
-        <button className="buttonSugestao">
-          <div><WarningCircle size={24} />Assunto</div>
-          <div>
-            <p>Nome</p>
-          </div>
-        </button>
+          {sugestoes.map((prop) =>{
+            return (
+              <Suggest key={prop.id_jornada} titleSuggest={prop.titulo}/>
+            );
+          })}
+          
       </div>
     </GlobalModal>
   );
