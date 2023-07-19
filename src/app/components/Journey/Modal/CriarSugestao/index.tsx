@@ -32,8 +32,9 @@ export function CriarSugestao() {
             <Dialog.Close asChild>
                 <Button
                   content="Cancelar"
-                  visible
                   styles={{ width: "100%", height: "56px", padding: "20px 0px"}}
+                  visible
+                  light
                 />
             </Dialog.Close>
             <Button

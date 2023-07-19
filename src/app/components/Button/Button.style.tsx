@@ -5,6 +5,7 @@ import { styled, css } from "styled-components";
 export interface ButtonStyledProps {
   visible?: boolean;
   styles?: Record<string, string>;
+  ligth?: boolean;
 }
 
 export const ButtonStyled = styled.button<ButtonStyledProps>`
@@ -12,10 +13,17 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   font-family: inherit;
   font-weight: 700;
   border-radius: var(--border-radius);
-  background-color: var(--beige);
   border: none;
-  color: var(--white);
   cursor: pointer;
+
+  ${(props) => (props.ligth? css`
+    background-color: #F1F1F1;
+    color: #23262F;
+    border: ;
+  ` : css`
+    background-color: var(--beige);
+    color: var(--white);
+  `)};
 
   display: ${(props) => (props.visible ? "block" : "none")};
 
