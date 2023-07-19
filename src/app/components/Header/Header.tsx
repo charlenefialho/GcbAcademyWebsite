@@ -25,7 +25,7 @@ export function Header() {
         content="Entrar"
         visible={false}
         styles={S.buttonHeaderStyles}
-        onClick={() => {setModalOpen(!ModalOpen); console.log(modalSuggest)}}
+        onClick={() => setModalOpen(!ModalOpen)}
       ></Button>
 
       <LoginModal isLoginOpen={ModalOpen} setLoginOpen={setModalOpen} />
