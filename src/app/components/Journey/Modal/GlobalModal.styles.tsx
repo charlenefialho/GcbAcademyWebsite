@@ -1,84 +1,118 @@
 "use client";
+import styled from "styled-components";
+import * as Dialog from "@radix-ui/react-dialog";
 
-import { styled } from "styled-components";
+const breakpoints = {
+  small: "576px",
+  medium: "768px",
+  large: "992px",
+  xlarge: "1200px",
+};
 
-export const Background = styled.section`
+export const Close = styled(Dialog.Close)`
+  line-height: 0;
+`;
+
+export const Overlay = styled(Dialog.Overlay)`
   display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
-  z-index: 5;
+  z-index: 0;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
 `;
 
-export const Container = styled.div`
+export const Content = styled(Dialog.Content)`
+  max-height: 96vh;
+  overflow-y: auto;
+  min-width: 32rem;
+  max-width: 34rem;
+  border-radius: 6px;
+  background-color: var(--white);
+  z-index: 2;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media (max-width: ${breakpoints.small}) {
+    min-width: 90%;
+  }
+`;
+
+export const Container = styled.section`
   display: flex;
-  max-width: 33.9375rem;
-  max-height: 100vh;
+  width: 100%;
   overflow-y: auto;
   padding: 1.5rem 2rem;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
   border-radius: 0.9375rem;
-  background: var(--color-light-light, #fcfcfd);
-`;
-
-export const Content = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2rem;
+  background: var(--white);
 
   form {
     display: flex;
+    width: 100%;
+    overflow-y: auto;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 2rem;
   }
 
-  p {
+  .contentText {
     width: 100%;
-    text-align: left;
+    color: #263238;
+    text-align: justify;
+    font-size: min(1rem, 3.5vw);
   }
 
-  form > span {
+  .listaSugestoes {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: -1rem;
-    font-size: min(0.75rem, 3vw);
-    color: #263238;
+    flex-direction: column;
+    gap: 1rem;
   }
-
-  .useTermsCheckBox {
+  .listaSugestoes > .buttonSugestao {
     width: 100%;
-    justify-content: flex-start;
+    height: 3.5rem;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-top: -0.5rem;
-    font-size: 0.875rem;
-    line-height: 1rem;
+    padding: 0rem 1rem;
+    border: 2px solid #dfdfe6;
+    background-color: #fcfcfd;
+    border-radius: 2.5rem;
+    color: #23262f;
 
-    > a {
-      text-decoration: none;
-      color: var(--beige);
+    > div {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
   }
 
-  .divTextQuestion {
-    display: flex;
-    justify-content: center;
+  .textAreaCriarSugestao {
+    width: 100%;
+    height: 10.5rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 2px solid var(--color-light-light-3, #dfdfe6);
+    background: var(--color-light-light, #fcfcfd);
+    position: relative;
+
+    &:focus {
+      border: 1px solid var(--black);
+    }
   }
 
-  .linkTextQuestion {
-    text-decoration: none;
-    color: var(--beige);
+  @media (max-width: ${breakpoints.small}) {
+    gap: 1rem;
   }
 `;
 
@@ -98,7 +132,7 @@ export const ModalHeader = styled.header`
     border: 1px solid var(--black);
   }
 
-  h4 {
+  .titleModal {
     font-size: 1.5rem;
     font-style: normal;
     font-weight: 500;
@@ -147,25 +181,8 @@ export const IconSpan = styled.span`
   position: absolute;
   left: 0.8rem;
   height: 100%;
-`;
 
-
-const breakpoints = {
-  small: "576px",
-  medium: "768px",
-  large: "992px",
-  xlarge: "1200px",
-};
-
-export const ContainerResponsive = styled(Container)`
   @media (max-width: ${breakpoints.medium}) {
-    padding: 1rem;
-    gap: 1rem;
-  }
-`;
-
-export const InputModalResponsive = styled(InputModal)`
-  @media (max-width: ${breakpoints.medium}) {
-    max-width: 100%;
+    left: 2%;
   }
 `;
