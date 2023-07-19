@@ -43,9 +43,14 @@ export function LoginModal({ isOpen, setOpen }: Modal) {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<loginUserData>({
     resolver: zodResolver(loginFormValidationSchema),
+    defaultValues:{
+      email: '',
+      password: ''
+    }
   });
 
   const [loginError, setLoginError] = useState<string | null>(null);
@@ -54,6 +59,8 @@ export function LoginModal({ isOpen, setOpen }: Modal) {
     try {
       await login(data.email, data.password);
       setLoginError('');
+      reset();
+      setOpen(!open);
     } catch (error) {
       const firebaseError = error as fireBase.AuthError;
       if (firebaseError.code === "auth/user-not-found" || firebaseError.code === "auth/wrong-password") {
