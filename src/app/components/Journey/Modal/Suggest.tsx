@@ -5,11 +5,13 @@ import * as Dialog from "@radix-ui/react-dialog"
 import { WarningCircle } from "@phosphor-icons/react";
 import { VisualizarSugestao } from "./VisualizarSugestao";
 
-interface ISuggest{
-    titleSuggest: string
+export interface ISuggest{
+    idSuggest: React.ReactNode;
+    titleSuggest: string;
+    description: string;
 }
 
-export function Suggest({titleSuggest} : ISuggest){
+export function Suggest({idSuggest,titleSuggest, description} : ISuggest){
     return(
         <Dialog.Root>
             <Dialog.Trigger asChild>
@@ -23,7 +25,7 @@ export function Suggest({titleSuggest} : ISuggest){
                 </div>
               </button>
             </Dialog.Trigger>
-            <VisualizarSugestao />
+            <VisualizarSugestao idSuggest={idSuggest} titleSuggest={titleSuggest} description={description}/>
           </Dialog.Root>
     );
 }

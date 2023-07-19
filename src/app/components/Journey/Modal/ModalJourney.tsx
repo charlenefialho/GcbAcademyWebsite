@@ -117,7 +117,7 @@ export function ModalJourney({
       <div className="listaSugestoes">
           {sugestoes.map((prop) =>{
             return (
-              <Suggest key={prop.id_suggest} titleSuggest={prop.titulo}/>
+              <Suggest idSuggest={prop.id_suggest} titleSuggest={prop.titulo} description={prop.descricao}/>
             );
           })}
           

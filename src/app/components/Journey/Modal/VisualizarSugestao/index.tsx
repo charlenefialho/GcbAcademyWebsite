@@ -4,12 +4,17 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { GlobalModal } from "../GlobalModal";
 import { WarningCircle } from "@phosphor-icons/react";
 import { Button } from "@/app/components/Button/Button";
+import { ISuggest } from "../Suggest";
 
-export function VisualizarSugestao() {
+interface IVisualizarSugestao extends ISuggest{
+
+}
+
+export function VisualizarSugestao({idSuggest, titleSuggest, description} : IVisualizarSugestao) {
   return (
     <GlobalModal titleModal="Sugestão">
       <div style={{ width: "100%", textAlign: "left" }}>
-        <p>Título: Assunto</p>
+        <p>Título: {titleSuggest}</p>
       </div>
       <div style={{ width: "100%", textAlign: "left" }}>
         <p>Autor: Nome</p>
@@ -35,8 +40,7 @@ export function VisualizarSugestao() {
         </span>
         <p style={{ color: "#87898E" }}>
           {" "}
-          Acho que seria válido ensinar aos membros do Academy sobre Google Tag
-          Manager e Redux.
+          {description}
         </p>
       </div>
       <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
