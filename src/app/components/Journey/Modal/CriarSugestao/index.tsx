@@ -8,9 +8,10 @@ import { InputContent, InputModal } from "../GlobalModal.styles";
 
 interface ICreateSuggest{
   id?:React.Key;
+  nameTable: string
 }
 
-export function CriarSugestao({id}: ICreateSuggest) {
+export function CriarSugestao({id, nameTable}: ICreateSuggest) {
   return (
     <GlobalModal titleModal="Criar uma sugestão">
       <form action="">

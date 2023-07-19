@@ -50,7 +50,7 @@ export function ModalJourney({id, titleModal, contentTextModal} : IModalJourneyP
               Criar Sugestão
             </button>
           </Dialog.Trigger>
-              <CriarSugestao/>
+              <CriarSugestao id={id} nameTable={titleModal}/>
         </Dialog.Root>
 
         
