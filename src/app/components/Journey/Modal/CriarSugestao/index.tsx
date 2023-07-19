@@ -6,8 +6,11 @@ import { Button } from "@/app/components/Button/Button";
 import { GlobalModal } from "../GlobalModal";
 import { InputContent, InputModal } from "../GlobalModal.styles";
 
+interface ICreateSuggest{
+  id?:React.Key;
+}
 
-export function CriarSugestao() {
+export function CriarSugestao({id}: ICreateSuggest) {
   return (
     <GlobalModal titleModal="Criar uma sugestão">
       <form action="">

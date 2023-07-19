@@ -7,6 +7,7 @@ import { LogoGcb } from "../LogoGcb/LogoGcb";
 import { MenuMobile } from "../MenuMobile/MenuMobile";
 import { Button } from "../Button/Button";
 import { LoginModal } from "../Modal/Login/LoginModal";
+import { itemsCard, modalSuggest } from "../Journey/Journey";
 
 export function Header() {
   const [ModalOpen, setModalOpen] = useState<boolean>(false);
@@ -24,7 +25,7 @@ export function Header() {
         content="Entrar"
         visible={false}
         styles={S.buttonHeaderStyles}
-        onClick={() => setModalOpen(!ModalOpen)}
+        onClick={() => {setModalOpen(!ModalOpen); console.log(modalSuggest)}}
       ></Button>
 
       <LoginModal isLoginOpen={ModalOpen} setLoginOpen={setModalOpen} />

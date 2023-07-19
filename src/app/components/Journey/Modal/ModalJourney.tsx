@@ -9,15 +9,17 @@ import { GlobalModal } from "./GlobalModal";
 import { CriarSugestao } from "./CriarSugestao";
 import { VisualizarSugestao } from "./VisualizarSugestao";
 
-export function ModalJourney() {
+export interface IModalJourneyProps{
+  id:React.Key;
+  titleModal:string;
+  contentTextModal:string;
+}
+
+export function ModalJourney({id, titleModal, contentTextModal} : IModalJourneyProps) {
   return (
-    <GlobalModal titleModal="Web Development">
+    <GlobalModal titleModal={titleModal}>
       <p className="contentText">
-        A jornada de web developer no GCB Academy é uma oportunidade emocionante
-        de mergulhar no mundo do desenvolvimento web. Durante o programa, você
-        vai adquirir as habilidades essenciais para criar sites e aplicativos
-        incríveis, com React e Next.js aplicando tecnologias como Testing
-        Library e Storybook.
+        {contentTextModal}
       </p>
       <InputModal>
         <InputContent
