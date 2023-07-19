@@ -47,7 +47,7 @@ export function CriarSugestao({ id, nameTable }: ICreateSuggest) {
       const suggestListRef = ref(db, `${formattedNameTable}`);
       const newsuggestRef = push(suggestListRef);
       set(newsuggestRef, {
-        id_jornada: id,
+        id_suggest: id,
         titulo: data.title,
         descricao: data.description,
       });

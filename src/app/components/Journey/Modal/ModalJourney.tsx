@@ -19,7 +19,7 @@ export interface IModalJourneyProps {
 }
 
 export interface ISuggestion {
-  id_jornada: string;
+  id_suggest: string;
   titulo: string;
   descricao: string;
 }
@@ -43,7 +43,7 @@ export function ModalJourney({
           if (suggestionData) {
             const sugestoesList: ISuggestion[] = Object.keys(suggestionData).map(
               (key) => ({
-                id_jornada: key,
+                id_suggest: key,
                 titulo: suggestionData[key].titulo,
                 descricao: suggestionData[key].descricao,
               })
@@ -117,7 +117,7 @@ export function ModalJourney({
       <div className="listaSugestoes">
           {sugestoes.map((prop) =>{
             return (
-              <Suggest key={prop.id_jornada} titleSuggest={prop.titulo}/>
+              <Suggest key={prop.id_suggest} titleSuggest={prop.titulo}/>
             );
           })}
           
