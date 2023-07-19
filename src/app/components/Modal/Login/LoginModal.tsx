@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, FormEvent } from "react";
+import {toast} from 'react-toastify';
 import Link from "next/link";
 import Image from "next/image";
 import * as zod from "zod";
@@ -57,10 +58,11 @@ export function LoginModal({ isOpen, setOpen }: Modal) {
 
   async function handleSubmitLogin(data: UserLogin) {
     try {
-      await login(data.email, data.password);
+      const user = await login(data.email, data.password);
       setLoginError('');
       reset();
       setOpen(!open);
+      toast.success(`Logado com sucesso`);
     } catch (error) {
       const firebaseError = error as fireBase.AuthError;
       if (firebaseError.code === "auth/user-not-found" || firebaseError.code === "auth/wrong-password") {
