@@ -82,7 +82,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const subTitle = styled.p`
+export const SubTitle = styled.p`
   max-width: 40%;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
