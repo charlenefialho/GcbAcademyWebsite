@@ -30,9 +30,9 @@ export function CardJourney({
 }: cardJourney) {
   return (
     <Dialog.Root>
-      <Dialog.Trigger asChild>
+      <Dialog.Trigger asChild >
         <S.DivCard>
-          <S.CardContainer>
+          <S.CardContainer style={{cursor: 'pointer'}}>
             <S.CardContent style={{ backgroundColor: bgColor }}>
               <S.ImageCard src={urlImg} alt="Card Imagem" />
               <S.MiniContainer>
