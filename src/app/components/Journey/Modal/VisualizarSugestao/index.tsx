@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { GlobalModal } from "../GlobalModal";
+import { GlobalModal } from "../../../Modal/GlobalModal/GlobalModal";
 import { WarningCircle } from "@phosphor-icons/react";
 import { Button } from "@/app/components/Button/Button";
 import { ISuggest } from "../../../Modal/Suggestion/Suggest";
