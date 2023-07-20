@@ -30,10 +30,13 @@ interface newSuggestData extends newSuggestForm {
 
 export function CriarSugestao({ id, nameTable }: ICreateSuggest) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("");
+
   useEffect(() => {
     const unsubscribe = onAuthChanged((user) => {
       if (user) {
         setIsLoggedIn(true);
+        setUserName(`${user.displayName?.toString()}`)
       } else {
         setIsLoggedIn(false);
       }
@@ -73,7 +76,7 @@ export function CriarSugestao({ id, nameTable }: ICreateSuggest) {
           id_suggest: id,
           titulo: data.title,
           descricao: data.description,
-          author: "",
+          author: userName,
         });
         reset();
         toast.success("Sugestão adicionada com sucesso");

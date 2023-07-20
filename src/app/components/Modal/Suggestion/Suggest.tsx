@@ -26,7 +26,7 @@ export function Suggest({
             {titleSuggest}
           </div>
           <div>
-            <p>Nome</p>
+            <p>{author}</p>
           </div>
         </button>
       </Dialog.Trigger>
