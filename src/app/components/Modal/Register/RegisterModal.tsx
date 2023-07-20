@@ -26,25 +26,36 @@ interface UserRegister {
   userName: string;
   email: string;
   password: string;
+  confirmPassword: string;
 }
 
-const registerFormValidationSchema = zod.object({
-  userName: zod.string().nonempty("O nome é obrigatório"),
-  email: zod
-    .string()
-    .min(1, "Informe o e-mail")
-    .email("Informe um e-mail válido"),
-  password: zod
-    .string({
-      required_error: "Campo de senha é obrigatório",
-    })
-    .min(8, "A senha deve ter no mínimo 8 caracteres")
-    .regex(
-      /^(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$/,
-      "A senha deve conter no mínimo um número e um caractere especial"
-    ),
-});
-
+const registerFormValidationSchema = zod
+  .object({
+    userName: zod.string().nonempty("O nome é obrigatório"),
+    email: zod
+      .string()
+      .min(1, "Informe o e-mail")
+      .email("Informe um e-mail válido"),
+    password: zod
+      .string({
+        required_error: "Campo de senha é obrigatório",
+      })
+      .min(8, "A senha deve ter no mínimo 8 caracteres")
+      .regex(
+        /^(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$/,
+        "A senha deve conter no mínimo um número e um caractere especial"
+      ),
+    confirmPassword: zod.string(),
+  })
+  .refine(
+    (data: UserRegister) => {
+      return data.password === data.confirmPassword;
+    },
+    {
+      message: "As senhas devem coincidir",
+      path: ["confirmPassword"],
+    }
+  );
 type registerUserData = zod.infer<typeof registerFormValidationSchema>;
 
 export function RegisterModal({
@@ -75,7 +86,6 @@ export function RegisterModal({
     resolver: zodResolver(registerFormValidationSchema),
   });
 
-  console.log(errors);
 
   if (isRegisterOpen) {
     return (
@@ -142,11 +152,15 @@ export function RegisterModal({
                 <S.InputContent
                   placeholder="Confirmação de senha"
                   type="password"
+                  {...register("confirmPassword")}
                 />
                 <S.IconSpan>
                   <Image src={padlockIcon} width={24} height={24} alt="" />
                 </S.IconSpan>
               </S.InputModal>
+              {errors.confirmPassword && (<span style={{ color: "#ff0000" }}>
+                  {errors.confirmPassword.message}
+                </span>)}
               <section className="useTermsCheckBox">
                 <input type="checkbox" name="useTerms" id="useTerms" /> Eu li,
                 concordo e aceito o <Link href="#">Termos e Condições</Link>
