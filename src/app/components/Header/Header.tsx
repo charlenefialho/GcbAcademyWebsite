@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { signOut } from "firebase/auth";
 
 import * as S from "./Header.styles";
 import { LogoGcb } from "../LogoGcb/LogoGcb";
@@ -8,22 +10,17 @@ import { MenuMobile } from "../MenuMobile/MenuMobile";
 import { Button } from "../Button/Button";
 import { LoginModal } from "../Modal/Login/LoginModal";
 import { onAuthChanged } from "../../../../utils/firebase/authService";
-import { signOut } from "firebase/auth";
 import { auth } from "../../../../utils/firebase/firebaseService";
-import { toast } from "react-toastify";
 
 export function Header() {
-  const [ModalOpen, setModalOpen] = useState<boolean>(false);
+  const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   useEffect(() => {
     const unsubscribe = onAuthChanged((user) => {
-      if (user) {
-        setIsLoggedIn(true);
-      }
-      else{
-        setIsLoggedIn(false);
-      }
+      setIsLoggedIn(!!user);
     });
+
     return () => {
       unsubscribe();
     };
@@ -32,9 +29,9 @@ export function Header() {
   async function handleLogout() {
     try {
       await signOut(auth);
-      toast.success('Logout realizado com sucesso');
+      toast.success("Logout realizado com sucesso");
     } catch (error) {
-      toast.error('Erro ao realizar logout');
+      toast.error("Erro ao realizar logout");
     }
   }
 
@@ -47,19 +44,24 @@ export function Header() {
         <S.NavLink href="/#journey">Jornadas</S.NavLink>
         <S.NavLink href="/#aboutUs">Sobre nós</S.NavLink>
       </S.NavLinks>
-      {isLoggedIn ?<Button content="Sair"
-        visible={false}
-        styles={S.buttonHeaderStyles}
-        onClick={handleLogout}
-        /> : <Button
-        content="Entrar"
-        visible={false}
-        styles={S.buttonHeaderStyles}
-        onClick={() => setModalOpen(!ModalOpen)}
-      ></Button>}
-      
 
-      <LoginModal isLoginOpen={ModalOpen} setLoginOpen={setModalOpen} />
+      {isLoggedIn ? (
+        <Button
+          content="Sair"
+          visible={false}
+          styles={S.buttonHeaderStyles}
+          onClick={handleLogout}
+        />
+      ) : (
+        <Button
+          content="Entrar"
+          visible={false}
+          styles={S.buttonHeaderStyles}
+          onClick={() => setModalOpen(!isModalOpen)}
+        />
+      )}
+
+      <LoginModal isLoginOpen={isModalOpen} setLoginOpen={setModalOpen} />
     </S.TagHeader>
   );
 }
