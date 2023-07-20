@@ -6,12 +6,11 @@ import AliceCarousel from "react-alice-carousel";
 import * as S from "./Journey.styles";
 import ImgWaveTop from "../../assets/svg/wave-top.svg";
 import ImgWaveBottom from "../../assets/svg/wave-bottom.svg";
-import imgFrontEnd from "@/app/assets/img/frontend.png";
-import imgMobile from "@/app/assets/svg/phone.svg";
-import imgBackEnd from "@/app/assets/img/backend.png";
-import imgQuality from "@/app/assets/svg/quality.svg";
+import imgFrontEnd from "../../assets/img/frontend.png";
+import imgMobile from "../../assets/svg/phone.svg";
+import imgBackEnd from "../../assets/img/backend.png";
+import imgQuality from "../../assets/svg/quality.svg";
 import { CardJourney } from "./CardJourney/CardJourney";
-import { CriarSugestao } from "../Modal/Suggestion/CreateSuggestion";
 
 export const infoCards = [
   {
@@ -60,17 +59,19 @@ export const infoCards = [
   },
 ];
 
-export const itemsCard = infoCards.map((info) => (
-  <CardJourney
-    id={info.id}
-    urlImg={info.urlImg}
-    contentTitle={info.contentTitle}
-    content={info.content}
-    bgColor={info.bgColor}
-    titleModal={info.contentTitle}
-    contentTextModal={info.journey.content}
-  />
-));
+const createCardItems = () =>
+  infoCards.map((info) => (
+    <CardJourney
+      key={info.id}
+      id={info.id}
+      urlImg={info.urlImg}
+      contentTitle={info.contentTitle}
+      content={info.content}
+      bgColor={info.bgColor}
+      titleModal={info.contentTitle}
+      contentTextModal={info.journey.content}
+    />
+  ));
 
 const itemsVisibles = {
   768: {
@@ -92,7 +93,7 @@ export function Jornada() {
       <S.WaveTop src={ImgWaveTop} alt="wave" />
       <h1>Jornadas</h1>
       <S.Containerjourneys>
-        <AliceCarousel items={itemsCard} responsive={itemsVisibles} />
+        <AliceCarousel items={createCardItems()} responsive={itemsVisibles} />
       </S.Containerjourneys>
       <S.WaveBottom src={ImgWaveBottom} alt="wave" />
     </S.SectionJourney>
