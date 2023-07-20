@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, FormEvent } from "react";
+import React from "react";
 import { toast } from "react-toastify";
 import { User, WarningCircle } from "@phosphor-icons/react";
 import Link from "next/link";
@@ -76,7 +76,9 @@ export function RegisterModal({
     } catch (error) {
       const firebaseError = error as fireBase.AuthError;
       if (firebaseError.code === "auth/email-already-in-use") {
-        toast.error("Este email já está em uso. Por favor, utilize outro endereço de email.");
+        toast.error(
+          "Este email já está em uso. Por favor, utilize outro endereço de email."
+        );
       } else {
         toast.error("Ocorreu um erro. Por favor, tente novamente.");
       }
@@ -91,7 +93,6 @@ export function RegisterModal({
   } = useForm<registerUserData>({
     resolver: zodResolver(registerFormValidationSchema),
   });
-
 
   if (isRegisterOpen) {
     return (
@@ -164,9 +165,11 @@ export function RegisterModal({
                   <Image src={padlockIcon} width={24} height={24} alt="" />
                 </S.IconSpan>
               </S.InputModal>
-              {errors.confirmPassword && (<span style={{ color: "#ff0000" }}>
+              {errors.confirmPassword && (
+                <span style={{ color: "#ff0000" }}>
                   {errors.confirmPassword.message}
-                </span>)}
+                </span>
+              )}
               <section className="useTermsCheckBox">
                 <input type="checkbox" name="useTerms" id="useTerms" /> Eu li,
                 concordo e aceito o <Link href="#">Termos e Condições</Link>

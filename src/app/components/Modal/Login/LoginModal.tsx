@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, FormEvent } from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,7 +12,7 @@ import * as fireBase from "firebase/auth";
 import * as S from "../Modal.styles";
 import xCircle from "../../../assets/svg/icon-x-circle.svg";
 import emailIcon from "../../../assets/svg/email-icon.svg";
-import padlockIcon from "../../../assets/svg//pad-lock-icon.svg";
+import padlockIcon from "../../../assets/svg/pad-lock-icon.svg";
 import { Background, Container, Content, ModalHeader } from "../Modal.styles";
 import { Button } from "../../Button/Button";
 import { RegisterModal } from "../Register/RegisterModal";
@@ -38,8 +38,6 @@ const loginFormValidationSchema = zod.object({
 
 type loginUserData = zod.infer<typeof loginFormValidationSchema>;
 
-
-
 export function LoginModal({ isLoginOpen, setLoginOpen }: LoginModal) {
   const [modalRegisterOpen, setModalRegisterOpen] = useState(false);
   const [loginError, setLoginError] = useState<string | null>(null);
@@ -56,8 +54,6 @@ export function LoginModal({ isLoginOpen, setLoginOpen }: LoginModal) {
       password: "",
     },
   });
-
-  
 
   async function handleSubmitLogin(data: UserLogin) {
     try {
