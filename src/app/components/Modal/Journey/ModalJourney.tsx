@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, FormEvent, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { getDatabase, ref, child, get, onValue, off } from "firebase/database";
+import { MagnifyingGlass } from "@phosphor-icons/react";
+import { getDatabase, ref, child, onValue, off } from "firebase/database";
 
 import { IconSpan, InputContent, InputModal } from "../Modal.styles";
-import { MagnifyingGlass, WarningCircle } from "@phosphor-icons/react";
 import { GlobalModal } from "../GlobalModal/GlobalModal";
 import { CriarSugestao } from "../Suggestion/CreateSuggestion";
 import { Suggest } from "../Suggestion/Suggest";
@@ -85,7 +85,6 @@ export function ModalJourney({
         <Dialog.Root>
           <Dialog.Trigger asChild>
             <button
-              content="Criar Sugestão"
               className="criarSugestao"
               style={{
                 padding: "0.75rem 1rem",
@@ -119,6 +118,7 @@ export function ModalJourney({
         {sugestoes.map((prop) => {
           return (
             <Suggest
+              key={prop.id_suggest}
               idSuggest={prop.id_suggest}
               titleSuggest={prop.titulo}
               description={prop.descricao}
