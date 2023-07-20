@@ -4,7 +4,7 @@ import React from "react";
 
 import * as Dialog from "@radix-ui/react-dialog";
 import { WarningCircle } from "@phosphor-icons/react";
-import { VisualizarSugestao } from "./VisualizeSuggestion";
+import { VisualizeSuggestion } from "./VisualizeSuggestion";
 
 export interface ISuggest {
   idSuggest: React.ReactNode;
@@ -32,7 +32,7 @@ export function Suggest({
           </div>
         </button>
       </Dialog.Trigger>
-      <VisualizarSugestao
+      <VisualizeSuggestion
         idSuggest={idSuggest}
         titleSuggest={titleSuggest}
         description={description}

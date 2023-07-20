@@ -8,7 +8,7 @@ import { GlobalModal } from "../../GlobalModal/GlobalModal";
 import { Button } from "@/app/components/Button/Button";
 import { ISuggest } from "../Suggest";
 
-export function VisualizarSugestao({
+export function VisualizeSuggestion({
   idSuggest,
   titleSuggest,
   description,
