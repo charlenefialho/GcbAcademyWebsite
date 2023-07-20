@@ -5,18 +5,18 @@ import * as Dialog from "@radix-ui/react-dialog";
 
 import * as S from "./CardJourney.styles";
 import { RegisterModal } from "../../Modal/Register/RegisterModal";
-import { IModalJourneyProps, ModalJourney } from "../Modal/ModalJourney";
+import {
+  IModalJourneyProps,
+  ModalJourney,
+} from "../../Modal/Journey/ModalJourney";
 import { infoCards } from "../Journey";
 
-
-
-interface cardJourney extends IModalJourneyProps{
+interface cardJourney extends IModalJourneyProps {
   id: React.Key;
   urlImg: string;
   contentTitle: string;
   content: string;
   bgColor: string;
-
 }
 
 export function CardJourney({
@@ -26,13 +26,13 @@ export function CardJourney({
   content,
   bgColor,
   titleModal,
-  contentTextModal
+  contentTextModal,
 }: cardJourney) {
   return (
     <Dialog.Root>
-      <Dialog.Trigger asChild >
+      <Dialog.Trigger asChild>
         <S.DivCard>
-          <S.CardContainer style={{cursor: 'pointer'}}>
+          <S.CardContainer style={{ cursor: "pointer" }}>
             <S.CardContent style={{ backgroundColor: bgColor }}>
               <S.ImageCard src={urlImg} alt="Card Imagem" />
               <S.MiniContainer>
@@ -47,7 +47,11 @@ export function CardJourney({
         </S.DivCard>
       </Dialog.Trigger>
 
-      <ModalJourney id={id} titleModal={titleModal} contentTextModal={contentTextModal}/>
+      <ModalJourney
+        id={id}
+        titleModal={titleModal}
+        contentTextModal={contentTextModal}
+      />
     </Dialog.Root>
   );
 }

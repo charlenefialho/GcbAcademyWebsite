@@ -4,11 +4,11 @@ import React, { useState, FormEvent, useEffect } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { getDatabase, ref, child, get, onValue, off } from "firebase/database";
 
-import { IconSpan, InputContent, InputModal } from "../../Modal/Modal.styles";
+import { IconSpan, InputContent, InputModal } from "../Modal.styles";
 import { MagnifyingGlass, WarningCircle } from "@phosphor-icons/react";
-import { GlobalModal } from "../../Modal/GlobalModal/GlobalModal";
-import { CriarSugestao } from "./CriarSugestao";
-import { Suggest } from "../../Modal/Suggestion/Suggest";
+import { GlobalModal } from "../GlobalModal/GlobalModal";
+import { CriarSugestao } from "../../Journey/Modal/CriarSugestao";
+import { Suggest } from "../Suggestion/Suggest";
 
 export interface IModalJourneyProps {
   id: React.Key;
