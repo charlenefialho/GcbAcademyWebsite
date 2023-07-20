@@ -2,7 +2,7 @@ import React from "react";
 
 import * as Dialog from "@radix-ui/react-dialog";
 import { WarningCircle } from "@phosphor-icons/react";
-import { VisualizarSugestao } from "../../Journey/Modal/VisualizarSugestao";
+import { VisualizarSugestao } from "./VisualizeSuggestion";
 
 export interface ISuggest {
   idSuggest: React.ReactNode;
