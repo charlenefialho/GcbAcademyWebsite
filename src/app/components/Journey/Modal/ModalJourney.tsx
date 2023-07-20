@@ -8,8 +8,6 @@ import { IconSpan, InputContent, InputModal } from "../../Modal/Modal.styles";
 import { MagnifyingGlass, WarningCircle } from "@phosphor-icons/react";
 import { GlobalModal } from "./GlobalModal";
 import { CriarSugestao } from "./CriarSugestao";
-import { VisualizarSugestao } from "./VisualizarSugestao";
-import { toast } from "react-toastify";
 import { Suggest } from "./Suggest";
 
 export interface IModalJourneyProps {
@@ -22,6 +20,7 @@ export interface ISuggestion {
   id_suggest: string;
   titulo: string;
   descricao: string;
+  author: string;
 }
 
 export function ModalJourney({
@@ -46,6 +45,7 @@ export function ModalJourney({
                 id_suggest: key,
                 titulo: suggestionData[key].titulo,
                 descricao: suggestionData[key].descricao,
+                author: suggestionData[key].author
               })
             );
             setSugestoes(sugestoesList);
@@ -101,7 +101,10 @@ export function ModalJourney({
               Criar Sugestão
             </button>
           </Dialog.Trigger>
-          <CriarSugestao id={id} nameTable={titleModal} />
+          
+            <CriarSugestao id={id} nameTable={titleModal} />
+          
+          
         </Dialog.Root>
       </div>
       <div
@@ -118,7 +121,7 @@ export function ModalJourney({
       <div className="listaSugestoes">
           {sugestoes.map((prop) =>{
             return (
-              <Suggest idSuggest={prop.id_suggest} titleSuggest={prop.titulo} description={prop.descricao}/>
+              <Suggest idSuggest={prop.id_suggest} titleSuggest={prop.titulo} description={prop.descricao} author={prop.author}/>
             );
           })}
           

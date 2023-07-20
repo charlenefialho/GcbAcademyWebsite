@@ -9,9 +9,10 @@ export interface ISuggest{
     idSuggest: React.ReactNode;
     titleSuggest: string;
     description: string;
+    author:string;
 }
 
-export function Suggest({idSuggest,titleSuggest, description} : ISuggest){
+export function Suggest({idSuggest,titleSuggest, description, author} : ISuggest){
     return(
         <Dialog.Root>
             <Dialog.Trigger asChild>
@@ -25,7 +26,7 @@ export function Suggest({idSuggest,titleSuggest, description} : ISuggest){
                 </div>
               </button>
             </Dialog.Trigger>
-            <VisualizarSugestao idSuggest={idSuggest} titleSuggest={titleSuggest} description={description}/>
+            <VisualizarSugestao idSuggest={idSuggest} titleSuggest={titleSuggest} description={description} author={author}/>
           </Dialog.Root>
     );
 }

@@ -6,18 +6,15 @@ import { WarningCircle } from "@phosphor-icons/react";
 import { Button } from "@/app/components/Button/Button";
 import { ISuggest } from "../Suggest";
 
-interface IVisualizarSugestao extends ISuggest{
 
-}
-
-export function VisualizarSugestao({idSuggest, titleSuggest, description} : IVisualizarSugestao) {
+export function VisualizarSugestao({idSuggest, titleSuggest, description, author} : ISuggest) {
   return (
     <GlobalModal titleModal="Sugestão">
       <div style={{ width: "100%", textAlign: "left" }}>
         <p>Título: {titleSuggest}</p>
       </div>
       <div style={{ width: "100%", textAlign: "left" }}>
-        <p>Autor: Nome</p>
+        <p>Autor: {author}</p>
       </div>
       <div
         style={{

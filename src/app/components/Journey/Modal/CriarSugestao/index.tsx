@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as zod from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,6 +10,7 @@ import { GlobalModal } from "../GlobalModal";
 import { InputContent, InputModal } from "../GlobalModal.styles";
 import { getDatabase, ref, push, set } from "firebase/database";
 import { toast } from "react-toastify";
+import { onAuthChanged } from "../../../../../../utils/firebase/authService";
 
 interface ICreateSuggest {
   id?: React.Key;
@@ -21,9 +22,28 @@ const createSuggestValidationSchema = zod.object({
   description: zod.string().nonempty("Insira a descrição"),
 });
 
-type newSuggestData = zod.infer<typeof createSuggestValidationSchema>;
+type newSuggestForm = zod.infer<typeof createSuggestValidationSchema>;
+
+interface newSuggestData extends newSuggestForm {
+  author: string;
+}
 
 export function CriarSugestao({ id, nameTable }: ICreateSuggest) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const unsubscribe = onAuthChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      }
+      else{
+        setIsLoggedIn(false);
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -38,23 +58,29 @@ export function CriarSugestao({ id, nameTable }: ICreateSuggest) {
   });
 
   async function handleSubmitNewSuggest(data: newSuggestData) {
-    const formattedNameTable = `${nameTable
-      .toUpperCase()
-      .replace(/\s+/g, "_")
-      .replace(/_+$/, "")}`;
-    try {
-      const db = getDatabase();
-      const suggestListRef = ref(db, `${formattedNameTable}`);
-      const newsuggestRef = push(suggestListRef);
-      set(newsuggestRef, {
-        id_suggest: id,
-        titulo: data.title,
-        descricao: data.description,
-      });
-      reset();
-      toast.success("Sugestão adicionada com sucesso");
-    } catch (erro) {
-      toast.error("Ocorreu um erro");
+    if (!isLoggedIn) {
+      toast.error("Por favor, faça login para criar uma sugestão.");
+      return;
+    } else {
+      const formattedNameTable = `${nameTable
+        .toUpperCase()
+        .replace(/\s+/g, "_")
+        .replace(/_+$/, "")}`;
+      try {
+        const db = getDatabase();
+        const suggestListRef = ref(db, `${formattedNameTable}`);
+        const newsuggestRef = push(suggestListRef);
+        set(newsuggestRef, {
+          id_suggest: id,
+          titulo: data.title,
+          descricao: data.description,
+          author: "",
+        });
+        reset();
+        toast.success("Sugestão adicionada com sucesso");
+      } catch (erro) {
+        toast.error("Ocorreu um erro");
+      }
     }
   }
 

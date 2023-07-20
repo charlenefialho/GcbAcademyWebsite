@@ -38,8 +38,11 @@ const loginFormValidationSchema = zod.object({
 
 type loginUserData = zod.infer<typeof loginFormValidationSchema>;
 
+
+
 export function LoginModal({ isLoginOpen, setLoginOpen }: LoginModal) {
   const [modalRegisterOpen, setModalRegisterOpen] = useState(false);
+  const [loginError, setLoginError] = useState<string | null>(null);
 
   const {
     register,
@@ -54,7 +57,7 @@ export function LoginModal({ isLoginOpen, setLoginOpen }: LoginModal) {
     },
   });
 
-  const [loginError, setLoginError] = useState<string | null>(null);
+  
 
   async function handleSubmitLogin(data: UserLogin) {
     try {
