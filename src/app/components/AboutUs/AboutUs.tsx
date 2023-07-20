@@ -1,5 +1,7 @@
 "use client";
+
 import React from "react";
+
 import * as S from "./AboutUs.styles";
 import imgAboutUs from "../../assets/svg/about-us.svg";
 

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 
@@ -25,10 +25,7 @@ export function Reviews() {
   return (
     <S.ContainerReviews>
       <S.TitleReviews>Veja o que outros colaboradores dizem!</S.TitleReviews>
-      <S.AliceCarouselStyled
-        items={items}
-        responsive={itemsVisibles}
-      />
+      <S.AliceCarouselStyled items={items} responsive={itemsVisibles} />
     </S.ContainerReviews>
   );
 }

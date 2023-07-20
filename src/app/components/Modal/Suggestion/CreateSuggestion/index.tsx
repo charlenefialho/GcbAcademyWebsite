@@ -1,15 +1,16 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as zod from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 import { Button } from "@/app/components/Button/Button";
 import { GlobalModal } from "../../GlobalModal/GlobalModal";
 import { InputContent, InputModal } from "../../GlobalModal/GlobalModal.styles";
 import { getDatabase, ref, push, set } from "firebase/database";
-import { toast } from "react-toastify";
 import { onAuthChanged } from "../../../../../../utils/firebase/authService";
 
 interface ICreateSuggest {
@@ -36,7 +37,7 @@ export function CriarSugestao({ id, nameTable }: ICreateSuggest) {
     const unsubscribe = onAuthChanged((user) => {
       if (user) {
         setIsLoggedIn(true);
-        setUserName(`${user.displayName?.toString()}`)
+        setUserName(`${user.displayName?.toString()}`);
       } else {
         setIsLoggedIn(false);
       }

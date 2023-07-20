@@ -1,4 +1,7 @@
+'use client';
+
 import React from "react";
+
 import * as S from "./Introduction.styles";
 import bgImage from "../../assets/img/bgImage.png";
 import { Button } from "../Button/Button";

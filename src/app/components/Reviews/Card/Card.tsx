@@ -1,4 +1,6 @@
-'use client'
+"use client";
+
+import React from "react";
 
 import * as S from "./Card.styles";
 import imgTeste from "../../../assets/img/bgImage.png";
