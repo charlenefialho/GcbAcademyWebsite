@@ -8,6 +8,7 @@ import Image from "next/image";
 import * as zod from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import * as fireBase from "firebase/auth";
 
 import * as S from "../Modal.styles";
 import xCircle from "../../../assets/svg/icon-x-circle.svg";
@@ -73,7 +74,12 @@ export function RegisterModal({
       reset();
       setRegisterOpen(!isRegisterOpen);
     } catch (error) {
-      toast.error("Ocorreu um erro tente novamente");
+      const firebaseError = error as fireBase.AuthError;
+      if (firebaseError.code === "auth/email-already-in-use") {
+        toast.error("Este email já está em uso. Por favor, utilize outro endereço de email.");
+      } else {
+        toast.error("Ocorreu um erro. Por favor, tente novamente.");
+      }
     }
   }
 
