@@ -46,7 +46,7 @@ export function MenuMobile(props: MenuProps) {
           </S.MenuItem>
         </S.MenuItems>
       </S.MenuContainer>
-      <LoginModal isOpen={ModalOpen} setOpen={setModalOpen} />
+      <LoginModal isLoginOpen={ModalOpen} setLoginOpen={setModalOpen} />
     </>
   );
 }
