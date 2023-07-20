@@ -6,11 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 import { Button } from "@/app/components/Button/Button";
-import { GlobalModal } from "../../../Modal/GlobalModal/GlobalModal";
-import {
-  InputContent,
-  InputModal,
-} from "../../../Modal/GlobalModal/GlobalModal.styles";
+import { GlobalModal } from "../../GlobalModal/GlobalModal";
+import { InputContent, InputModal } from "../../GlobalModal/GlobalModal.styles";
 import { getDatabase, ref, push, set } from "firebase/database";
 import { toast } from "react-toastify";
 import { onAuthChanged } from "../../../../../../utils/firebase/authService";

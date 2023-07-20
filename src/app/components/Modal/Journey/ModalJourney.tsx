@@ -7,7 +7,7 @@ import { getDatabase, ref, child, get, onValue, off } from "firebase/database";
 import { IconSpan, InputContent, InputModal } from "../Modal.styles";
 import { MagnifyingGlass, WarningCircle } from "@phosphor-icons/react";
 import { GlobalModal } from "../GlobalModal/GlobalModal";
-import { CriarSugestao } from "../../Journey/Modal/CriarSugestao";
+import { CriarSugestao } from "../Suggestion/CreateSuggestion";
 import { Suggest } from "../Suggestion/Suggest";
 
 export interface IModalJourneyProps {
