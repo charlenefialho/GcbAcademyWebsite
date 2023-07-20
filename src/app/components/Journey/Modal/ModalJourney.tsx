@@ -8,7 +8,7 @@ import { IconSpan, InputContent, InputModal } from "../../Modal/Modal.styles";
 import { MagnifyingGlass, WarningCircle } from "@phosphor-icons/react";
 import { GlobalModal } from "./GlobalModal";
 import { CriarSugestao } from "./CriarSugestao";
-import { Suggest } from "./Suggest";
+import { Suggest } from "../../Modal/Suggestion/Suggest";
 
 export interface IModalJourneyProps {
   id: React.Key;
@@ -34,39 +34,38 @@ export function ModalJourney({
     .replace(/\s+/g, "_")
     .replace(/_+$/, "")}`;
 
-    async function createListSuggestion() {
-      const db = await ref(getDatabase());
-      try {
-        onValue(child(db, formattedNameTable), (snapshot) => {
-          const suggestionData = snapshot.val();
-          if (suggestionData) {
-            const sugestoesList: ISuggestion[] = Object.keys(suggestionData).map(
-              (key) => ({
-                id_suggest: key,
-                titulo: suggestionData[key].titulo,
-                descricao: suggestionData[key].descricao,
-                author: suggestionData[key].author
-              })
-            );
-            setSugestoes(sugestoesList);
-            console.log(formattedNameTable);
-            console.log(sugestoesList);
-          } else {
-            console.log("Nenhum dado encontrado");
-          }
-        });
-      } catch (error) {
-        console.log("Erro ao obter os dados:", error);
-      }
+  async function createListSuggestion() {
+    const db = await ref(getDatabase());
+    try {
+      onValue(child(db, formattedNameTable), (snapshot) => {
+        const suggestionData = snapshot.val();
+        if (suggestionData) {
+          const sugestoesList: ISuggestion[] = Object.keys(suggestionData).map(
+            (key) => ({
+              id_suggest: key,
+              titulo: suggestionData[key].titulo,
+              descricao: suggestionData[key].descricao,
+              author: suggestionData[key].author,
+            })
+          );
+          setSugestoes(sugestoesList);
+          console.log(formattedNameTable);
+          console.log(sugestoesList);
+        } else {
+          console.log("Nenhum dado encontrado");
+        }
+      });
+    } catch (error) {
+      console.log("Erro ao obter os dados:", error);
     }
-  
-    useEffect(() => {
-      createListSuggestion();
-      return () => {
-        off(child(ref(getDatabase()), formattedNameTable));
-      };
-    }, [formattedNameTable]);
-  
+  }
+
+  useEffect(() => {
+    createListSuggestion();
+    return () => {
+      off(child(ref(getDatabase()), formattedNameTable));
+    };
+  }, [formattedNameTable]);
 
   return (
     <GlobalModal titleModal={titleModal}>
@@ -95,16 +94,14 @@ export function ModalJourney({
                 border: "2px solid var(--beige)",
                 color: "var(--white)",
                 fontFamily: "inherit",
-                cursor: 'pointer'
+                cursor: "pointer",
               }}
             >
               Criar Sugestão
             </button>
           </Dialog.Trigger>
-          
-            <CriarSugestao id={id} nameTable={titleModal} />
-          
-          
+
+          <CriarSugestao id={id} nameTable={titleModal} />
         </Dialog.Root>
       </div>
       <div
@@ -119,12 +116,16 @@ export function ModalJourney({
       </div>
 
       <div className="listaSugestoes">
-          {sugestoes.map((prop) =>{
-            return (
-              <Suggest idSuggest={prop.id_suggest} titleSuggest={prop.titulo} description={prop.descricao} author={prop.author}/>
-            );
-          })}
-          
+        {sugestoes.map((prop) => {
+          return (
+            <Suggest
+              idSuggest={prop.id_suggest}
+              titleSuggest={prop.titulo}
+              description={prop.descricao}
+              author={prop.author}
+            />
+          );
+        })}
       </div>
     </GlobalModal>
   );

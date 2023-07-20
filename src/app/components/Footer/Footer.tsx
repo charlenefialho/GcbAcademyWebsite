@@ -1,10 +1,12 @@
 'use client';
 
 import React from "react";
+import { FacebookLogo, InstagramLogo, TwitterLogo } from "@phosphor-icons/react";
+
 import * as S from "./Footer.styles";
 import { LogoGcb } from "../LogoGcb/LogoGcb";
 import waveFooter from "../../assets/svg/wave-footer.svg";
-import { FacebookLogo, InstagramLogo, TwitterLogo } from "@phosphor-icons/react";
+
 
 const socialMediaLinks = [
   {id:1, icon: <FacebookLogo size={28} color="#ffff" weight="fill" />, url: "#" },

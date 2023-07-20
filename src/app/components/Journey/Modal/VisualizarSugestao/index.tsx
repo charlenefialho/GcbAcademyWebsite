@@ -4,10 +4,14 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { GlobalModal } from "../GlobalModal";
 import { WarningCircle } from "@phosphor-icons/react";
 import { Button } from "@/app/components/Button/Button";
-import { ISuggest } from "../Suggest";
+import { ISuggest } from "../../../Modal/Suggestion/Suggest";
 
-
-export function VisualizarSugestao({idSuggest, titleSuggest, description, author} : ISuggest) {
+export function VisualizarSugestao({
+  idSuggest,
+  titleSuggest,
+  description,
+  author,
+}: ISuggest) {
   return (
     <GlobalModal titleModal="Sugestão">
       <div style={{ width: "100%", textAlign: "left" }}>
@@ -35,14 +39,15 @@ export function VisualizarSugestao({idSuggest, titleSuggest, description, author
         >
           <WarningCircle size={24} />
         </span>
-        <p style={{ color: "#87898E" }}>
-          {" "}
-          {description}
-        </p>
+        <p style={{ color: "#87898E" }}> {description}</p>
       </div>
-      <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
+      <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
         <Dialog.DialogClose asChild>
-            <Button content="Fechar" visible  styles={{ width: "50%", height: "56px", padding: "20px 0px" }}/>
+          <Button
+            content="Fechar"
+            visible
+            styles={{ width: "50%", height: "56px", padding: "20px 0px" }}
+          />
         </Dialog.DialogClose>
       </div>
     </GlobalModal>
