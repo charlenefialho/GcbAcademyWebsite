@@ -1,15 +1,32 @@
-"use client";
+'use client';
 
 import React from "react";
-
 import * as S from "./Footer.styles";
 import { LogoGcb } from "../LogoGcb/LogoGcb";
 import waveFooter from "../../assets/svg/wave-footer.svg";
-import {
-  FacebookLogo,
-  InstagramLogo,
-  TwitterLogo,
-} from "@phosphor-icons/react";
+import { FacebookLogo, InstagramLogo, TwitterLogo } from "@phosphor-icons/react";
+
+const socialMediaLinks = [
+  {id:1, icon: <FacebookLogo size={28} color="#ffff" weight="fill" />, url: "#" },
+  {id:2, icon: <InstagramLogo size={28} color="#ffff" weight="fill" />, url: "#" },
+  {id:3, icon: <TwitterLogo size={28} color="#ffff" weight="fill" />, url: "#" },
+];
+
+const navigationLinks = [
+  { label: "Introdução", url: "#" },
+  { label: "Jornada", url: "#" },
+  { label: "Sobre nós", url: "#" },
+  { label: "Reviews", url: "#" },
+  { label: "NewsLetter", url: "#" },
+];
+
+const companyLinks = [
+  { label: "GCB Investimentos", url: "https://gcbinvestimentos.com/" },
+  { label: "Adiante Recebíveis", url: "https://adiantesa.com/" },
+  { label: "PeerBR", url: "https://peerbr.com/" },
+  { label: "FMI", url: "https://fmisa.com.br/" },
+  { label: "BMS Partners", url: "https://bmspartners.com.br/" },
+];
 
 export function Footer() {
   return (
@@ -22,77 +39,33 @@ export function Footer() {
               <LogoGcb light />
             </div>
             <ul className="redesSociais">
-              <li>
-                <a href="#">
-                  <FacebookLogo size={28} color="#ffff" weight="fill" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <InstagramLogo size={28} color="#ffff" weight="fill" />{" "}
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  {" "}
-                  <TwitterLogo size={28} color="#ffff" weight="fill" />{" "}
-                </a>
-              </li>
+              {socialMediaLinks.map((link) => (
+                <li key={link.id}>
+                  <a href={link.url}>{link.icon}</a>
+                </li>
+              ))}
             </ul>
           </S.ColFooter>
           <S.ColFooter>
             <h4>Navegação</h4>
             <ul>
-              <li>
-                <a href="#"> Introdução </a>
-              </li>
-              <li>
-                <a href="#"> Jornada </a>
-              </li>
-              <li>
-                <a href="#"> Sobre nós </a>
-              </li>
-              <li>
-                <a href="#">Reviews</a>
-              </li>
-              <li>
-                <a href="#">NewsLetter</a>
-              </li>
+              {navigationLinks.map((link) => (
+                <li key={link.label}>
+                  <a href={link.url}>{link.label}</a>
+                </li>
+              ))}
             </ul>
           </S.ColFooter>
           <S.ColFooter>
             <h4>Empresas</h4>
             <ul>
-              <li>
-                <a target="_blank" href="https://gcbinvestimentos.com/">
-                  {" "}
-                  GCB Investimentos
-                </a>
-              </li>
-              <li>
-                <a target="_blank" href="https://adiantesa.com/">
-                  {" "}
-                  Adiante Recebíveis{" "}
-                </a>
-              </li>
-              <li>
-                <a target="_blank" href="https://peerbr.com/">
-                  {" "}
-                  PeerBR{" "}
-                </a>
-              </li>
-              <li>
-                <a target="_blank" href="https://fmisa.com.br/">
-                  {" "}
-                  FMI
-                </a>
-              </li>
-              <li>
-                <a target="_blank" href="https://bmspartners.com.br/">
-                  {" "}
-                  BMS Partners
-                </a>
-              </li>
+              {companyLinks.map((link) => (
+                <li key={link.url}>
+                  <a target="_blank" href={link.url}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </S.ColFooter>
           <S.ColFooter>
@@ -110,7 +83,7 @@ export function Footer() {
         <div className="divThanks">
           <hr />
           <p className="thanks">
-            developed with ♥ by Charlene Fialho. Thanks!!{" "}
+            developed with ♥ by Charlene Fialho. Thanks!!
           </p>
         </div>
       </S.ContainerFooter>
