@@ -11,9 +11,9 @@ interface MenuProps {
   isOpen: boolean;
 }
 
-export function MenuMobile(props: MenuProps) {
-  const [ModalOpen, setModalOpen] = useState<boolean>(false);
-  const [isOpen, setIsOpen] = useState(false);
+export function MenuMobile({ isOpen: initialIsOpen }: MenuProps) {
+  const [isOpen, setIsOpen] = useState(initialIsOpen);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -41,12 +41,12 @@ export function MenuMobile(props: MenuProps) {
               content="Entrar"
               visible={true}
               styles={buttonHeaderStyles}
-              onClick={() => setModalOpen(!ModalOpen)}
+              onClick={() => setModalOpen(!isModalOpen)}
             />
           </S.MenuItem>
         </S.MenuItems>
       </S.MenuContainer>
-      <LoginModal isLoginOpen={ModalOpen} setLoginOpen={setModalOpen} />
+      <LoginModal isLoginOpen={isModalOpen} setLoginOpen={setModalOpen} />
     </>
   );
 }
