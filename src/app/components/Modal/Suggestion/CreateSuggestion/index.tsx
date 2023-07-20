@@ -29,7 +29,7 @@ interface newSuggestData extends newSuggestForm {
   author: string;
 }
 
-export function CriarSugestao({ id, nameTable }: ICreateSuggest) {
+export function CreateSuggestion({ id, nameTable }: ICreateSuggest) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
 
@@ -99,7 +99,7 @@ export function CriarSugestao({ id, nameTable }: ICreateSuggest) {
         </InputModal>
         <textarea
           id="descricaoSugestao"
-          className="textAreaCriarSugestao"
+          className="textAreaCreateSuggestion"
           cols={30}
           rows={10}
           placeholder="Descrição..."

@@ -7,7 +7,7 @@ import { getDatabase, ref, child, onValue, off } from "firebase/database";
 
 import { IconSpan, InputContent, InputModal } from "../Modal.styles";
 import { GlobalModal } from "../GlobalModal/GlobalModal";
-import { CriarSugestao } from "../Suggestion/CreateSuggestion";
+import { CreateSuggestion } from "../Suggestion/CreateSuggestion";
 import { Suggest } from "../Suggestion/Suggest";
 
 export interface IModalJourneyProps {
@@ -85,7 +85,7 @@ export function ModalJourney({
         <Dialog.Root>
           <Dialog.Trigger asChild>
             <button
-              className="criarSugestao"
+              className="CreateSuggestion"
               style={{
                 padding: "0.75rem 1rem",
                 borderRadius: "0.625rem",
@@ -100,7 +100,7 @@ export function ModalJourney({
             </button>
           </Dialog.Trigger>
 
-          <CriarSugestao id={id} nameTable={titleModal} />
+          <CreateSuggestion id={id} nameTable={titleModal} />
         </Dialog.Root>
       </div>
       <div

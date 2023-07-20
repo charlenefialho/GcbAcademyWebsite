@@ -97,7 +97,7 @@ export const Container = styled.section`
     }
   }
 
-  .textAreaCriarSugestao {
+  .textAreaCreateSuggestion {
     width: 100%;
     height: 10.5rem;
     padding: 1rem;
