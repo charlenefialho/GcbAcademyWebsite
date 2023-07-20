@@ -6,9 +6,9 @@ import AliceCarousel from "react-alice-carousel";
 import * as S from "./Journey.styles";
 import ImgWaveTop from "../../assets/svg/wave-top.svg";
 import ImgWaveBottom from "../../assets/svg/wave-bottom.svg";
-import imgFrontEnd from "@/app/assets/svg/frontend.svg";
+import imgFrontEnd from "@/app/assets/img/frontend.png";
 import imgMobile from "@/app/assets/svg/phone.svg";
-import imgBackEnd from "@/app/assets/svg/backend.svg";
+import imgBackEnd from "@/app/assets/img/backend.png";
 import imgQuality from "@/app/assets/svg/quality.svg";
 import { CardJourney } from "./CardJourney/CardJourney";
 import { CriarSugestao } from "./Modal/CriarSugestao";
@@ -21,7 +21,7 @@ export const infoCards = [
     urlImg: imgFrontEnd,
     contentTitle: "Web Developer",
     content: "21 Sugestões",
-    bgColor: "#57D273",
+    bgColor: "#62E776",
     journey:{
       content:"A jornada de web developer no GCB Academy é uma oportunidade emocionante de mergulhar no mundo do desenvolvimento web. Durante o programa, você vai adquirir as habilidades essenciais para criar sites e aplicativos incríveis, com React e Next.js aplicando tecnologias como Testing Library e Storybook."
     }
@@ -41,7 +41,7 @@ export const infoCards = [
     urlImg: imgBackEnd,
     contentTitle: "Backend Developer",
     content: "132 Sugestões",
-    bgColor: "#0596FC",
+    bgColor: "#4A78FC",
     journey:{
       content:"A jornada de Backend Developer no GCB Academy é uma oportunidade emocionante de mergulhar no mundo do desenvolvimento backend. Durante o programa, você adquirirá as habilidades essenciais para criar sistemas e APIs robustas, utilizando tecnologias como Node.js e frameworks como Express e Nest.js. Aprenderá a projetar arquiteturas escaláveis, a lidar com bancos de dados e a implementar autenticação e segurança em seus projetos. Com o apoio de instrutores experientes e colegas motivados, você estará preparado para enfrentar os desafios do mercado de trabalho e construir uma carreira de sucesso como Backend Developer. Vamos embarcar nessa jornada rumo à excelência em desenvolvimento backend!"
     }
