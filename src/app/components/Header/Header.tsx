@@ -43,9 +43,9 @@ export function Header() {
       <MenuMobile isOpen={false} />
       <LogoGcb mediaHeader />
       <S.NavLinks>
-        <S.NavLink href="#">Introdução</S.NavLink>
-        <S.NavLink href="#">Jornadas</S.NavLink>
-        <S.NavLink href="#">Sobre nós</S.NavLink>
+        <S.NavLink href="/#introduction">Introdução</S.NavLink>
+        <S.NavLink href="/#journey">Jornadas</S.NavLink>
+        <S.NavLink href="/#aboutUs">Sobre nós</S.NavLink>
       </S.NavLinks>
       {isLoggedIn ?<Button content="Sair"
         visible={false}

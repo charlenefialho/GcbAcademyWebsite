@@ -5,7 +5,7 @@ import { Button } from "../Button/Button";
 
 export function Introduction() {
   return (
-    <S.TagSection>
+    <S.TagSection id="introduction">
       <S.Container>
         <div className="divTitle">
           <S.Title>

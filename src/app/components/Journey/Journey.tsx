@@ -88,7 +88,7 @@ const itemsVisibles = {
 
 export function Jornada() {
   return (
-    <S.SectionJourney>
+    <S.SectionJourney id="journey">
       <S.WaveTop src={ImgWaveTop} alt="wave" />
       <h1>Jornadas</h1>
       <S.Containerjourneys>
