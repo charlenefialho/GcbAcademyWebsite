@@ -131,7 +131,7 @@ export function LoginModal({ isLoginOpen, setLoginOpen }: LoginModal) {
               </section>
               <Button
                 type="submit"
-                content="Criar"
+                content="Entrar"
                 styles={S.buttonStyleModal}
                 visible
               />
