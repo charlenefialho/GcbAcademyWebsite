@@ -95,6 +95,7 @@ export function ModalJourney({
                 border: "2px solid var(--beige)",
                 color: "var(--white)",
                 fontFamily: "inherit",
+                cursor: 'pointer'
               }}
             >
               Criar Sugestão
