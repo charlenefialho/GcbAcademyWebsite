@@ -34,7 +34,7 @@ export function Header() {
       await signOut(auth);
       toast.success('Logout realizado com sucesso');
     } catch (error) {
-      toast.error('Erro ao deslogar');
+      toast.error('Erro ao realizar logout');
     }
   }
 
