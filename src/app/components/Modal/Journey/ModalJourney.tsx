@@ -49,8 +49,6 @@ export function ModalJourney({
             })
           );
           setSugestoes(sugestoesList);
-          console.log(formattedNameTable);
-          console.log(sugestoesList);
         } else {
           console.log("Nenhum dado encontrado");
         }
