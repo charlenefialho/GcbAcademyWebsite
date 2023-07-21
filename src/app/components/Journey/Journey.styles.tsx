@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import styled from "styled-components";
+import 'react-alice-carousel/lib/alice-carousel.css';
 
 export const SectionJourney = styled.section`
   position: relative;

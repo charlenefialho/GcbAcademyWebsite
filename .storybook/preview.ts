@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/react";
 
 import '../src/app/globals.css'
+import 'react-alice-carousel/lib/alice-carousel.css';
 
 const preview: Preview = {
   parameters: {

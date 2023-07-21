@@ -4,7 +4,7 @@ import React, { ReactNode } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 
-import xCircle from "@/app/assets/svg/icon-x-circle.svg";
+import xCircle from "../../../assets/svg/icon-x-circle.svg";
 import {
   Close,
   Container,

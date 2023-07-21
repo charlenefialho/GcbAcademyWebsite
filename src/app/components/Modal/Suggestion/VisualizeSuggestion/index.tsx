@@ -5,7 +5,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { WarningCircle } from "@phosphor-icons/react";
 
 import { GlobalModal } from "../../GlobalModal/GlobalModal";
-import { Button } from "@/app/components/Button/Button";
+import { Button } from "../../../Button/Button";
 import { ISuggest } from "../Suggest";
 
 export function VisualizeSuggestion({
