@@ -4,10 +4,13 @@ import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 
 import * as S from "./CardJourney.styles";
+import Image from "next/image";
+import stars from "../../../assets/svg/stars.svg";
 import {
   IModalJourneyProps,
   ModalJourney,
 } from "../../Modal/Journey/ModalJourney";
+
 
 interface CardJourneyProps extends IModalJourneyProps {
   id: React.Key;
@@ -45,7 +48,7 @@ export function CardJourney({
                 <div>
                   <S.TitleMiniContainer>{contentTitle}</S.TitleMiniContainer>
                   <S.Text>{content}</S.Text>
-                  <S.StarsContainer>*****</S.StarsContainer>
+                  <S.StarsContainer><Image src={stars} alt=""/></S.StarsContainer>
                 </div>
               </S.MiniContainer>
             </S.CardContent>
