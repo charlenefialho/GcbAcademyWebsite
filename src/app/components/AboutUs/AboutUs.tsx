@@ -7,7 +7,7 @@ import imgAboutUs from "../../assets/svg/about-us.svg";
 
 const AboutUsTextSection = () => {
   return (
-    <S.SectionTextAboutUs >
+    <S.SectionTextAboutUs>
       <div className="contentTextAboutUs">
         <div>
           <p>
@@ -47,7 +47,7 @@ const AboutUsImageSection = () => {
   );
 };
 
-export function SobreNos() {
+export function AboutUs() {
   return (
     <S.SectionAboutUs id="aboutUs">
       <div className="divTitle">
