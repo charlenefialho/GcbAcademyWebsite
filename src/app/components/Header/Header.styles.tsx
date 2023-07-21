@@ -11,6 +11,7 @@ export const buttonHeaderStyles = {
 };
 
 export const TagHeader = styled.header`
+  background-color: var(--white);
   height: calc(6rem - 3px);
   width: 100%;
   display: flex;
