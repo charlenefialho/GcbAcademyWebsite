@@ -2,7 +2,7 @@
 
 import { Footer } from "./components/Footer/Footer";
 import { Introduction } from "./components/Introduction/Introduction";
-import { Jornada } from "./components/Journey/Journey";
+import { Journey } from "./components/Journey/Journey";
 import { Newsletter } from "./components/Newsletter/Newsletter";
 import { Reviews } from "./components/Reviews/Reviews";
 import { AboutUs } from "./components/AboutUs/AboutUs";
@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <ToastContainer />
       <Introduction />
-      <Jornada />
+      <Journey />
       <AboutUs />
       <Reviews />
       <Newsletter />
