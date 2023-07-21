@@ -4,7 +4,7 @@ import React, { ButtonHTMLAttributes } from "react";
 
 import { ButtonStyled } from "./Button.style";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   content: string;
   visible?: boolean;
   styles?: Record<string, string>;

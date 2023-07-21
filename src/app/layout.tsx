@@ -4,7 +4,7 @@ import { Poppins } from "next/font/google";
 import StyledComponentsRegistry from "./lib/registry";
 import { Header } from "./components/Header/Header";
 
-const poppins = Poppins({
+export const poppins = Poppins({
   weight: ['400','500','700'],
   subsets: ["latin"],
 });
