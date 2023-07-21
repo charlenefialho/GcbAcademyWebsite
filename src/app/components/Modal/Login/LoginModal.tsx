@@ -83,7 +83,7 @@ export function LoginModal({ isLoginOpen, setLoginOpen }: LoginModal) {
         <Container>
           <Content>
             <ModalHeader>
-              <h4>Entrar</h4>
+              <h4 data-testid="titleModal">Entrar</h4>
               <button onClick={() => setLoginOpen(!isLoginOpen)}>
                 <Image src={xCircle} alt="" />
               </button>
@@ -123,7 +123,7 @@ export function LoginModal({ isLoginOpen, setLoginOpen }: LoginModal) {
                   {errors.password.message}
                 </span>
               )}
-              {loginError && <p style={{ color: "#ff0000" }}>{loginError}</p>}
+              {loginError && <p style={{ color: "#ff0000" }} data-testid="messageErro">{loginError}</p>}
               <section className="useTermsCheckBox">
                 <input type="checkbox" name="useTerms" id="useTerms" /> Lembra
                 minha conta

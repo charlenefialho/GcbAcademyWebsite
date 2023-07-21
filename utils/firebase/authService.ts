@@ -2,7 +2,7 @@ import { signInWithEmailAndPassword, signOut, onAuthStateChanged, User, createUs
 import { auth } from "./firebaseService";
 
 
-interface IUserRegister{
+export interface IUserRegister{
     name: string,
     email:string,
     password:string
