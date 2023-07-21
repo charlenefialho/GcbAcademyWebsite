@@ -5,7 +5,7 @@ import { styled, css } from "styled-components";
 export interface ButtonStyledProps {
   visible?: boolean;
   styles?: Record<string, string>;
-  ligth?: boolean;
+  light?: boolean;
 }
 
 export const ButtonStyled = styled.button<ButtonStyledProps>`
@@ -16,14 +16,17 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   border: none;
   cursor: pointer;
 
-  ${(props) => (props.ligth? css`
-    background-color: #F1F1F1;
-    color: #23262F;
-    border: ;
-  ` : css`
-    background-color: var(--beige);
-    color: var(--white);
-  `)};
+  ${(props) =>
+    props.light
+      ? css`
+          background-color: #f1f1f1;
+          color: #23262f;
+          border: ;
+        `
+      : css`
+          background-color: var(--beige);
+          color: var(--white);
+        `};
 
   display: ${(props) => (props.visible ? "block" : "none")};
 

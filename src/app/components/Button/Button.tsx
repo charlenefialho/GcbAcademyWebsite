@@ -8,12 +8,23 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   content: string;
   visible?: boolean;
   styles?: Record<string, string>;
-  light?:boolean;
+  light?: boolean;
 }
 
-export function Button({ content, visible, styles, onClick , light}: ButtonProps) {
+export function Button({
+  content,
+  visible,
+  styles,
+  onClick,
+  light,
+}: ButtonProps) {
   return (
-    <ButtonStyled visible={visible} styles={styles}  onClick={onClick} ligth={light}>
+    <ButtonStyled
+      visible={visible}
+      styles={styles}
+      onClick={onClick}
+      light={light}
+    >
       {content}
     </ButtonStyled>
   );
