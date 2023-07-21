@@ -92,7 +92,7 @@ export function Journey() {
   return (
     <S.SectionJourney id="journey">
       <S.WaveTop src={ImgWaveTop} alt="wave" />
-      <h1>Journeys</h1>
+      <h1>Jornadas</h1>
       <S.Containerjourneys>
         <AliceCarousel items={createCardItems()} responsive={itemsVisibles} />
       </S.Containerjourneys>
