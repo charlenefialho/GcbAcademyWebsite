@@ -6,7 +6,7 @@ import { buttonHeaderStyles } from "../Header/Header.styles";
 import {poppins} from './../../layout';
 
 export default{
-  title:'Button',
+  title:'Components/Button',
   component: Button,
   args:{
   }
