@@ -79,8 +79,10 @@ export function RegisterModal({
         toast.error(
           "Este email já está em uso. Por favor, utilize outro endereço de email."
         );
-      } else {
-        toast.error("Ocorreu um erro. Por favor, tente novamente.");
+      } else if(firebaseError.code === "auth/internal-error"){
+        toast.error("Ocorreu um erro interno no servidor. Por favor, tente novamente.");
+      }else{
+        toast.error("Ocorreu um erro interno no servidor. Por favor, tente novamente.");
       }
     }
   }
